@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Searcher: React.FC = () => {
+const SearchForm: React.FC = () => {
   return (
     <Wrapper>
       <Heading>
@@ -15,7 +15,7 @@ const Searcher: React.FC = () => {
   )
 }
 
-export default Searcher
+export default SearchForm
 
 const Wrapper = styled.div`
   display: flex;

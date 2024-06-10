@@ -14,25 +14,17 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   const renderPageButtons = () => {
     const pageButtons = []
-    const maxVisiblePages = 4
-    let startPage = currentPage - Math.floor(maxVisiblePages / 2)
-    if (startPage < 1) {
-      startPage = 1
-    }
-    let endPage = startPage + maxVisiblePages - 1
-    if (endPage > totalPages) {
-      endPage = totalPages
-      startPage = endPage - maxVisiblePages + 1
-      if (startPage < 1) {
-        startPage = 1
-      }
-    }
+    const maxVisiblePages = 10
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2))
+    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1)
+
+    startPage = Math.max(1, Math.min(startPage, endPage - maxVisiblePages + 1))
 
     if (currentPage > 1) {
       pageButtons.push(
-        <PrevBtn key="prev" onClick={() => onPageChange(currentPage - 1)}>
+        <PageButton key="prev" onClick={() => onPageChange(currentPage - 1)}>
           ‹
-        </PrevBtn>
+        </PageButton>
       )
     }
 
@@ -50,9 +42,9 @@ const Pagination: React.FC<PaginationProps> = ({
 
     if (currentPage < totalPages) {
       pageButtons.push(
-        <NextBtn key="next" onClick={() => onPageChange(currentPage + 1)}>
+        <PageButton key="next" onClick={() => onPageChange(currentPage + 1)}>
           ›
-        </NextBtn>
+        </PageButton>
       )
     }
 
@@ -64,21 +56,11 @@ const Pagination: React.FC<PaginationProps> = ({
 
 export default Pagination
 
-const PrevBtn = styled.button`
-  margin-right: 8px;
-`
-
-const NextBtn = styled.button`
-  margin-left: 8px;
-`
-
 const PaginationWrapper = styled.div`
   display: flex;
-  width: 100%;
-  margin: 20px;
-  gap: 10px;
-  align-items: center;
   justify-content: flex-end;
+  width: 100%;
+  margin: 20px 0;
 `
 
 const PageButton = styled.button<{ active?: boolean }>`
@@ -87,6 +69,7 @@ const PageButton = styled.button<{ active?: boolean }>`
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
+  margin: 0 5px;
   cursor: pointer;
 
   &:hover {

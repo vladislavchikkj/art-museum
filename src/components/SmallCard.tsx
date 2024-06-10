@@ -1,18 +1,33 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import BookmarkButton from './BookmarkButton/BookmarkButton'
+import BookmarkButton from './BookmarkButton'
 
 interface SmallCardProps {
   title: string
   author: string
   status: string
+  imageId: string
 }
 
-const SmallCard: React.FC<SmallCardProps> = ({ title, author, status }) => {
+const SmallCard: React.FC<SmallCardProps> = ({
+  title,
+  author,
+  status,
+  imageId,
+}) => {
   return (
     <Card to={'/detail'}>
-      <ImagePlaceholder />
+      <ImagePlaceholder>
+        {imageId ? (
+          <Image
+            src={`https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`}
+            alt={title}
+          />
+        ) : (
+          'No Image'
+        )}
+      </ImagePlaceholder>
       <Info>
         <Title>{title}</Title>
         <Author>{author}</Author>
@@ -65,4 +80,11 @@ const Status = styled.p`
   font-size: 12px;
   color: #666;
   margin: 0;
+`
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import useFetchArtworks from '../hooks/useFetchArtworks'
-import BookmarkButton from './BookmarkButton/BookmarkButton'
+import ArtContext from '../context/ArtContext'
+import BookmarkButton from './BookmarkButton'
 import Pagination from './Pagination'
 import TitleSection from './TitleSection'
 
@@ -10,17 +10,18 @@ const Topics: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 3
 
-  const { artworks, loading, error } = useFetchArtworks(
-    currentPage,
-    itemsPerPage
-  )
-  const totalItems = 32
+  const { artworks, loading, error } = useContext(ArtContext)
+
+  const totalItems = artworks.length
   const totalPages = Math.ceil(totalItems / itemsPerPage)
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page)
   }
 
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const selectedArtworks = artworks.slice(startIndex, startIndex + itemsPerPage)
+  console.log(artworks)
   return (
     <Wrapper>
       <TitleSection subtitle={'Topics for you'} title={'Our special gallery'} />
@@ -30,7 +31,7 @@ const Topics: React.FC = () => {
         ) : error ? (
           <div>{error}</div>
         ) : (
-          artworks.map((artwork) => (
+          selectedArtworks.map((artwork) => (
             <Card key={artwork.id} to={`/detail/${artwork.id}`}>
               <ImagePlaceholder>
                 {artwork.image_id ? (

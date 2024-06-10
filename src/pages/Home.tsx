@@ -1,12 +1,12 @@
 import React from 'react'
-import Searcher from '../components/Searcher'
-import Topics from '../components/Topics'
 import OtherWorks from '../components/OtherWorks'
+import SearchForm from '../components/SearchForm'
+import Topics from '../components/Topics'
 
 const Home: React.FC = () => {
   return (
     <>
-      <Searcher />
+      <SearchForm />
       <Topics />
       <OtherWorks />
     </>

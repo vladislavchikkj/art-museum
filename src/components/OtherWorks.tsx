@@ -1,21 +1,40 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-import SmallCard from './Card'
+import ArtContext from '../context/ArtContext'
+import SmallCard from './SmallCard'
 import TitleSection from './TitleSection'
 
 const OtherWorks: React.FC = () => {
+  const { artworks, loading, error } = useContext(ArtContext) // Получите данные из контекста
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>
+  }
+  console.log(artworks)
   return (
     <Wrapper>
       <TitleSection subtitle={'Here some more'} title={'Other works for you'} />
       <Grid>
-        {Array.from({ length: 9 }).map((_, index) => (
-          <SmallCard
-            key={index}
-            title={'Charles V, bust length...'}
-            author={'Giovanni Britto'}
-            status={'Public'}
-          />
-        ))}
+        {artworks.map(
+          (artwork: {
+            id: React.Key | null | undefined
+            title: string
+            artist_display: string
+            image_id: string
+          }) => (
+            <SmallCard
+              key={artwork.id}
+              title={artwork.title}
+              author={artwork.artist_display}
+              status={'Public'} // Не уверен, что это поле правильное
+              imageId={artwork.image_id}
+            />
+          )
+        )}
       </Grid>
     </Wrapper>
   )
@@ -26,16 +45,6 @@ export default OtherWorks
 const Wrapper = styled.div`
   padding: 20px 0 100px 0;
   text-align: center;
-`
-
-const Header = styled.h2`
-  color: #f39c12;
-  margin-bottom: 5px;
-`
-
-const SubHeader = styled.h1`
-  color: #333;
-  margin-bottom: 20px;
 `
 
 const Grid = styled.div`

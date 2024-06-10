@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import SmallCard from '../components/Card'
+import SmallCard from '../components/SmallCard'
 import TitleSection from '../components/TitleSection'
 
 const Favorites: React.FC = () => {
@@ -24,6 +24,7 @@ const Favorites: React.FC = () => {
             title={'Charles V, bust length...'}
             author={'Giovanni Britto'}
             status={'Public'}
+            imageId={''}
           />
         ))}
       </Grid>
