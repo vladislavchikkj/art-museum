@@ -22,7 +22,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
-  width: 100%; // добавить ширину 100%, чтобы занять всю ширину контейнера
 `
 
 const Heading = styled.h1`
@@ -43,8 +42,9 @@ const SearchBox = styled.div`
   background-color: #f5f5f5;
   border-radius: 5px;
   padding: 10px 20px;
-  width: 100%; // добавить ширину 100%, чтобы занять всю ширину контейнера
+  width: 100%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 `
 
 const Input = styled.input`

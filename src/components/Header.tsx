@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Container from './Container'
 
 const Header: React.FC = () => {
+  const location = useLocation()
   return (
     <HeaderDiv>
       <Container>
@@ -14,10 +15,18 @@ const Header: React.FC = () => {
               Museum of <span>Art</span>
             </Title>
           </LogoWrapper>
-          <FavoritesLink to="/favorites">
-            <IconBookmark src="bookmark.svg" alt="bookmark" />
-            <span>Your favorites</span>
-          </FavoritesLink>
+          <LinkWrapper>
+            {location.pathname !== '/' && (
+              <FavoritesLink to="/">
+                <IconBookmark src="home.png" alt="home" />
+                <span>Home</span>
+              </FavoritesLink>
+            )}
+            <FavoritesLink to="/favorites">
+              <IconBookmark src="bookmark-home.png" alt="bookmark" />
+              <span>Your favorites</span>
+            </FavoritesLink>
+          </LinkWrapper>
         </HeaderWrapper>
       </Container>
     </HeaderDiv>
@@ -67,6 +76,13 @@ const Title = styled.h1`
   }
 `
 
+const LinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  gap: 1em;
+`
 const FavoritesLink = styled(Link)`
   display: flex;
   align-items: center;

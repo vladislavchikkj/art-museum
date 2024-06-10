@@ -3,7 +3,7 @@ import Searcher from '../components/Searcher'
 import Topics from '../components/Topics'
 import OtherWorks from '../components/OtherWorks'
 
-const HomePage: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <>
       <Searcher />
@@ -13,4 +13,4 @@ const HomePage: React.FC = () => {
   )
 }
 
-export default HomePage
+export default Home

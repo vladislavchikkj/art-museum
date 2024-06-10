@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BookmarkButton from './BookmarkButton/BookmarkButton'
 
@@ -10,7 +11,7 @@ interface SmallCardProps {
 
 const SmallCard: React.FC<SmallCardProps> = ({ title, author, status }) => {
   return (
-    <Card>
+    <Card to={'/detail'}>
       <ImagePlaceholder />
       <Info>
         <Title>{title}</Title>
@@ -24,13 +25,15 @@ const SmallCard: React.FC<SmallCardProps> = ({ title, author, status }) => {
 
 export default SmallCard
 
-const Card = styled.div`
+const Card = styled(Link)`
   display: flex;
   background-color: white;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   padding: 10px;
   align-items: center;
+  text-decoration: none;
+  color: black;
 `
 
 const ImagePlaceholder = styled.div`

@@ -25,6 +25,7 @@ export default Footer
 
 const FooterDiv = styled.footer`
   background: white;
+  margin-top: auto;
 `
 
 const FooterWrapper = styled.div`

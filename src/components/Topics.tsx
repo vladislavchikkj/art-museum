@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BookmarkButton from './BookmarkButton/BookmarkButton'
 
@@ -11,7 +12,7 @@ const Topics: React.FC = () => {
       </Header>
       <Gallery>
         {[1, 2, 3].map((item, index) => (
-          <Card key={index}>
+          <Card key={index} to={'/detail'}>
             <ImagePlaceholder>Image</ImagePlaceholder>
             <CardContent>
               <CardTitle>Charles V, bust length...</CardTitle>
@@ -66,7 +67,7 @@ const Gallery = styled.div`
   width: 100%;
 `
 
-const Card = styled.div`
+const Card = styled(Link)`
   position: relative;
   border-radius: 10px;
   display: flex;
