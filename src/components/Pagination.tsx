@@ -14,7 +14,7 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   const renderPageButtons = () => {
     const pageButtons = []
-    const maxVisiblePages = 10
+    const maxVisiblePages = 20
     let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2))
     const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1)
 
@@ -26,12 +26,18 @@ const Pagination: React.FC<PaginationProps> = ({
           ‹
         </PageButton>
       )
+    } else {
+      pageButtons.push(
+        <PageButton key="prev" disabled>
+          ‹
+        </PageButton>
+      )
     }
 
     for (let i = startPage; i <= endPage; i++) {
       pageButtons.push(
         <PageButton
-          key={i} // Уникальный ключ для каждой кнопки
+          key={i}
           className={currentPage === i ? 'active' : ''}
           onClick={() => onPageChange(i)}
         >
@@ -43,6 +49,12 @@ const Pagination: React.FC<PaginationProps> = ({
     if (currentPage < totalPages) {
       pageButtons.push(
         <PageButton key="next" onClick={() => onPageChange(currentPage + 1)}>
+          ›
+        </PageButton>
+      )
+    } else {
+      pageButtons.push(
+        <PageButton key="next" disabled>
           ›
         </PageButton>
       )
@@ -80,5 +92,10 @@ const PageButton = styled.button`
   &.active {
     background: #ff7a00;
     color: #fff;
+  }
+
+  &:disabled {
+    opacity: 0;
+    cursor: default;
   }
 `
