@@ -1,33 +1,55 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
+import ArtContext, { Artwork } from '../context/ArtContext'
 
 const Detail: React.FC = () => {
+  const { id } = useParams()
+  const { artworks } = useContext(ArtContext)
+
+  const artwork: Artwork | undefined = artworks.find(
+    (art: Artwork) => art.id === parseInt(id || '', 10)
+  )
+  if (!artwork) {
+    return <div>Искусство не найдено</div>
+  }
   return (
     <Wrapper>
       <ImagePlaceholder>
-        <IconPlaceholder />
+        {artwork.image_id ? (
+          <Image
+            src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
+            alt={artwork.title}
+          />
+        ) : (
+          'No Image'
+        )}
       </ImagePlaceholder>
       <Content>
-        <Title>Charles V, bust length, holding a sword, facing right</Title>
-        <Author>Giovanni Britto</Author>
+        <Title>{artwork.title}</Title>
+        <Author>{artwork.artist_title}</Author>
         <Date>1535-45</Date>
         <SectionTitle>Overview</SectionTitle>
         <InfoList>
           <InfoItem>
-            <strong>Artist nationality:</strong> German
+            <strong>Artist nationality:</strong> {artwork.artist_display}
           </InfoItem>
           <InfoItem>
-            <strong>Dimensions:</strong> Sheet: 19 3/8 x 13 11/16 in. (49.2 x
-            34.8 cm)
+            <strong>Dimensions:</strong> Sheet: {artwork.dimensions}
           </InfoItem>
           <InfoItem>
-            <strong>Credit Line:</strong> Rogers Fund, 1917
+            <strong>Credit Line:</strong> {artwork.credit_line}
           </InfoItem>
           <InfoItem>
-            <strong>Repository:</strong> Metropolitan Museum of Art, New York,
-            NY
+            <strong>Repository:</strong> {artwork.department_title}
           </InfoItem>
-          <InfoItem>Public</InfoItem>
+          <InfoItem>
+            {artwork.is_public_domain ? (
+              <strong>Public</strong>
+            ) : (
+              <strong>Private</strong>
+            )}
+          </InfoItem>
         </InfoList>
       </Content>
     </Wrapper>
@@ -46,22 +68,24 @@ const Wrapper = styled.div`
 `
 
 const ImagePlaceholder = styled.div`
-  width: 30rem;
+  background: #e0e0e0;
+  width: 100%;
   height: 30rem;
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 18px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
 `
-
-const IconPlaceholder = styled.div`
-  width: 24px;
-  height: 24px;
-  background-color: #e0e0e0;
-  border-radius: 50%;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `
 
 const Content = styled.div`

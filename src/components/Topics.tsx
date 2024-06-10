@@ -21,7 +21,6 @@ const Topics: React.FC = () => {
 
   const startIndex = (currentPage - 1) * itemsPerPage
   const selectedArtworks = artworks.slice(startIndex, startIndex + itemsPerPage)
-  console.log(artworks)
   return (
     <Wrapper>
       <TitleSection subtitle={'Topics for you'} title={'Our special gallery'} />

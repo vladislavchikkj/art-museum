@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import SmallCard from '../components/SmallCard'
 import TitleSection from '../components/TitleSection'
+import ArtContext from '../context/ArtContext'
 
 const Favorites: React.FC = () => {
+  const { artworks, loading, error } = useContext(ArtContext) // Получите данные из контекста
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>
+  }
   return (
     <>
       <Heading>
@@ -18,15 +28,23 @@ const Favorites: React.FC = () => {
         />
       </Heading>
       <Grid>
-        {Array.from({ length: 19 }).map((_, index) => (
-          <SmallCard
-            key={index}
-            title={'Charles V, bust length...'}
-            author={'Giovanni Britto'}
-            status={'Public'}
-            imageId={''}
-          />
-        ))}
+        {artworks.map(
+          (artwork: {
+            id: number
+            title: string
+            artist_display: string
+            image_id: string
+          }) => (
+            <SmallCard
+              id={artwork.id}
+              key={artwork.id}
+              title={artwork.title}
+              author={artwork.artist_display}
+              status={'Public'} // Не уверен, что это поле правильное
+              imageId={artwork.image_id}
+            />
+          )
+        )}
       </Grid>
     </>
   )

@@ -16,7 +16,7 @@ const Header: React.FC = () => {
             </Title>
           </LogoWrapper>
           <LinkWrapper>
-            {location.pathname !== '/' && (
+            {location.pathname != '/' && (
               <FavoritesLink to="/">
                 <IconBookmark src="home.png" alt="home" />
                 <span>Home</span>

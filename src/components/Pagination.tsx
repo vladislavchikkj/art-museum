@@ -31,8 +31,8 @@ const Pagination: React.FC<PaginationProps> = ({
     for (let i = startPage; i <= endPage; i++) {
       pageButtons.push(
         <PageButton
-          key={i}
-          active={currentPage === i}
+          key={i} // Уникальный ключ для каждой кнопки
+          className={currentPage === i ? 'active' : ''}
           onClick={() => onPageChange(i)}
         >
           {i}
@@ -63,9 +63,9 @@ const PaginationWrapper = styled.div`
   margin: 20px 0;
 `
 
-const PageButton = styled.button<{ active?: boolean }>`
-  background: ${({ active }) => (active ? '#ff7a00' : '#FAFAFA')};
-  color: ${({ active }) => (active ? '#fff' : '#333')};
+const PageButton = styled.button`
+  background: #fafafa;
+  color: #333;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
@@ -73,6 +73,11 @@ const PageButton = styled.button<{ active?: boolean }>`
   cursor: pointer;
 
   &:hover {
+    background: #ff7a00;
+    color: #fff;
+  }
+
+  &.active {
     background: #ff7a00;
     color: #fff;
   }

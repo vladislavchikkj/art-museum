@@ -14,19 +14,19 @@ const OtherWorks: React.FC = () => {
   if (error) {
     return <div>Error: {error}</div>
   }
-  console.log(artworks)
   return (
     <Wrapper>
       <TitleSection subtitle={'Here some more'} title={'Other works for you'} />
       <Grid>
         {artworks.map(
           (artwork: {
-            id: React.Key | null | undefined
+            id: number
             title: string
             artist_display: string
             image_id: string
           }) => (
             <SmallCard
+              id={artwork.id}
               key={artwork.id}
               title={artwork.title}
               author={artwork.artist_display}

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import BookmarkButton from './BookmarkButton'
 
 interface SmallCardProps {
+  id: number
   title: string
   author: string
   status: string
@@ -11,13 +12,14 @@ interface SmallCardProps {
 }
 
 const SmallCard: React.FC<SmallCardProps> = ({
+  id,
   title,
   author,
   status,
   imageId,
 }) => {
   return (
-    <Card to={'/detail'}>
+    <Card to={`/detail/${id}`}>
       <ImagePlaceholder>
         {imageId ? (
           <Image

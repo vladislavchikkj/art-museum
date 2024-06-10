@@ -13,7 +13,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/detail" element={<Detail />} />
+          <Route path="/detail/:id" element={<Detail />} />
         </Route>
       </Routes>
     </ArtProvider>
