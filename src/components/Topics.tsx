@@ -1,12 +1,19 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import useFetchArtworks from '../hooks/useFetchArtworks'
 import BookmarkButton from './BookmarkButton/BookmarkButton'
+import Pagination from './Pagination'
 import TitleSection from './TitleSection'
 
 const Topics: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 3
+
+  const { artworks, loading, error } = useFetchArtworks(
+    currentPage,
+    itemsPerPage
+  )
   const totalItems = 32
   const totalPages = Math.ceil(totalItems / itemsPerPage)
 
@@ -14,106 +21,55 @@ const Topics: React.FC = () => {
     setCurrentPage(page)
   }
 
-  const renderPageButtons = () => {
-    const pageButtons = []
-    const maxVisiblePages = 4
-    let startPage = currentPage - Math.floor(maxVisiblePages / 2)
-    if (startPage < 1) {
-      startPage = 1
-    }
-    let endPage = startPage + maxVisiblePages - 1
-    if (endPage > totalPages) {
-      endPage = totalPages
-      startPage = endPage - maxVisiblePages + 1
-      if (startPage < 1) {
-        startPage = 1
-      }
-    }
-
-    if (currentPage > 1) {
-      pageButtons.push(
-        <PrevBtn key="prev" onClick={() => handlePageChange(currentPage - 1)}>
-          ‹
-        </PrevBtn>
-      )
-    }
-
-    for (let i = startPage; i <= endPage; i++) {
-      pageButtons.push(
-        <PageButton
-          key={i}
-          active={currentPage === i}
-          onClick={() => handlePageChange(i)}
-        >
-          {i}
-        </PageButton>
-      )
-    }
-
-    if (currentPage < totalPages) {
-      pageButtons.push(
-        <NexBtn key="next" onClick={() => handlePageChange(currentPage + 1)}>
-          ›
-        </NexBtn>
-      )
-    }
-
-    return pageButtons
-  }
-
   return (
     <Wrapper>
       <TitleSection subtitle={'Topics for you'} title={'Our special gallery'} />
       <Gallery>
-        {Array.from({ length: itemsPerPage }, (_, index) => (
-          <Card key={index} to={'/detail'}>
-            <ImagePlaceholder>Image</ImagePlaceholder>
-            <CardContent>
-              <CardTitle>Charles V, bust length...</CardTitle>
-              <CardAuthor>Giovanni Britto</CardAuthor>
-              <CardFooter>
-                <CardStatus>Public</CardStatus>
-                <BookmarkButton />
-              </CardFooter>
-            </CardContent>
-          </Card>
-        ))}
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div>{error}</div>
+        ) : (
+          artworks.map((artwork) => (
+            <Card key={artwork.id} to={`/detail/${artwork.id}`}>
+              <ImagePlaceholder>
+                {artwork.image_id ? (
+                  <Image
+                    src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
+                    alt={artwork.title}
+                  />
+                ) : (
+                  'No Image'
+                )}
+              </ImagePlaceholder>
+              <CardContent>
+                <CardTitle>{artwork.title}</CardTitle>
+                <CardAuthor>{artwork.artist_title}</CardAuthor>
+                <CardFooter>
+                  <CardStatus>Public</CardStatus>
+                  <BookmarkButton />
+                </CardFooter>
+              </CardContent>
+            </Card>
+          ))
+        )}
       </Gallery>
-      <Pagination>{renderPageButtons()}</Pagination>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </Wrapper>
   )
 }
 
 export default Topics
 
-const PrevBtn = styled.button`
-  margin-right: 8px;
-`
-
-const NexBtn = styled.button`
-  margin-left: 8px;
-`
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
-`
-
-const Header = styled.div`
-  text-align: center;
-  margin-bottom: 30px;
-`
-
-const Subtitle = styled.div`
-  color: #ff7a00;
-  font-size: 14px;
-`
-
-const Title = styled.h1`
-  font-size: 32px;
-  color: #333;
 `
 
 const Gallery = styled.div`
@@ -143,6 +99,15 @@ const ImagePlaceholder = styled.div`
   font-size: 18px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  overflow: hidden;
+`
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `
 
 const CardContent = styled.div`
@@ -152,6 +117,8 @@ const CardContent = styled.div`
   padding: 15px;
   width: 80%;
   bottom: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `
 
 const CardTitle = styled.h2`
@@ -172,31 +139,4 @@ const CardFooter = styled.div`
 
 const CardStatus = styled.div`
   color: #666;
-`
-
-const Pagination = styled.div`
-  display: flex;
-  width: 100%;
-  margin: 20px;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-end;
-`
-
-const PageButton = styled.button<{ active?: boolean }>`
-  background: ${({ active }) => (active ? '#ff7a00' : '#FAFAFA')};
-  color: ${({ active }) => (active ? '#fff' : '#333')};
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-
-  &:hover {
-    background: #ff7a00;
-    color: #fff;
-  }
-`
-
-const NextButton = styled(PageButton)`
-  padding: 5px 8px;
 `
