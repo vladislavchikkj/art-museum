@@ -1,17 +1,71 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BookmarkButton from './BookmarkButton/BookmarkButton'
+import TitleSection from './TitleSection'
 
 const Topics: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 3
+  const totalItems = 32
+  const totalPages = Math.ceil(totalItems / itemsPerPage)
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+  }
+
+  const renderPageButtons = () => {
+    const pageButtons = []
+    const maxVisiblePages = 4
+    let startPage = currentPage - Math.floor(maxVisiblePages / 2)
+    if (startPage < 1) {
+      startPage = 1
+    }
+    let endPage = startPage + maxVisiblePages - 1
+    if (endPage > totalPages) {
+      endPage = totalPages
+      startPage = endPage - maxVisiblePages + 1
+      if (startPage < 1) {
+        startPage = 1
+      }
+    }
+
+    if (currentPage > 1) {
+      pageButtons.push(
+        <PrevBtn key="prev" onClick={() => handlePageChange(currentPage - 1)}>
+          ‹
+        </PrevBtn>
+      )
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pageButtons.push(
+        <PageButton
+          key={i}
+          active={currentPage === i}
+          onClick={() => handlePageChange(i)}
+        >
+          {i}
+        </PageButton>
+      )
+    }
+
+    if (currentPage < totalPages) {
+      pageButtons.push(
+        <NexBtn key="next" onClick={() => handlePageChange(currentPage + 1)}>
+          ›
+        </NexBtn>
+      )
+    }
+
+    return pageButtons
+  }
+
   return (
     <Wrapper>
-      <Header>
-        <Subtitle>Topics for you</Subtitle>
-        <Title>Our special gallery</Title>
-      </Header>
+      <TitleSection subtitle={'Topics for you'} title={'Our special gallery'} />
       <Gallery>
-        {[1, 2, 3].map((item, index) => (
+        {Array.from({ length: itemsPerPage }, (_, index) => (
           <Card key={index} to={'/detail'}>
             <ImagePlaceholder>Image</ImagePlaceholder>
             <CardContent>
@@ -25,18 +79,20 @@ const Topics: React.FC = () => {
           </Card>
         ))}
       </Gallery>
-      <Pagination>
-        <PageButton active>1</PageButton>
-        <PageButton>2</PageButton>
-        <PageButton>3</PageButton>
-        <PageButton>4</PageButton>
-        <NextButton>›</NextButton>
-      </Pagination>
+      <Pagination>{renderPageButtons()}</Pagination>
     </Wrapper>
   )
 }
 
 export default Topics
+
+const PrevBtn = styled.button`
+  margin-right: 8px;
+`
+
+const NexBtn = styled.button`
+  margin-left: 8px;
+`
 
 const Wrapper = styled.div`
   display: flex;

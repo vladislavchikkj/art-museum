@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import SmallCard from './Card'
+import TitleSection from './TitleSection'
 
 const OtherWorks: React.FC = () => {
   return (
     <Wrapper>
-      <Header>Here some more</Header>
-      <SubHeader>Other works for you</SubHeader>
+      <TitleSection subtitle={'Here some more'} title={'Other works for you'} />
       <Grid>
         {Array.from({ length: 9 }).map((_, index) => (
           <SmallCard

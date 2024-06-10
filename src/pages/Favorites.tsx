@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import SmallCard from '../components/Card'
+import TitleSection from '../components/TitleSection'
 
 const Favorites: React.FC = () => {
   return (
@@ -11,10 +12,10 @@ const Favorites: React.FC = () => {
           <Bookmark src="bookmark.svg" alt="bookmark" />
           <div>Favorites</div>
         </Highlight>
-        <Header>
-          <Subtitle>Topics for you</Subtitle>
-          <Title>Our special gallery</Title>
-        </Header>
+        <TitleSection
+          subtitle={'Topics for you'}
+          title={'Our special gallery'}
+        />
       </Heading>
       <Grid>
         {Array.from({ length: 19 }).map((_, index) => (
@@ -49,22 +50,7 @@ const Highlight = styled.span`
   align-items: center;
   gap: 0.5rem;
   color: #ff7a00;
-`
-
-const Header = styled.div`
-  text-align: center;
-  padding-top: 5rem;
-`
-
-const Subtitle = styled.div`
-  color: #e0a449;
-  font-size: 14px;
-`
-
-const Title = styled.p`
-  margin: 0;
-  font-size: 32px;
-  color: #333;
+  padding-bottom: 50px;
 `
 
 const Grid = styled.div`
