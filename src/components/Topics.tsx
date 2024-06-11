@@ -46,8 +46,14 @@ const Topics: React.FC = () => {
                 <CardTitle>{artwork.title}</CardTitle>
                 <CardAuthor>{artwork.artist_title}</CardAuthor>
                 <CardFooter>
-                  <CardStatus>Public</CardStatus>
-                  <BookmarkButton />
+                  <CardStatus>
+                    {artwork.is_public_domain ? (
+                      <strong>Public</strong>
+                    ) : (
+                      <strong>Private</strong>
+                    )}
+                  </CardStatus>
+                  <BookmarkButton id={artwork.id} />
                 </CardFooter>
               </CardContent>
             </Card>

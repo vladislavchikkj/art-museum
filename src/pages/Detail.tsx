@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import ArtContext, { Artwork } from '../context/ArtContext'
+import ArtContext from '../context/ArtContext'
+import { Artwork } from '../types/types'
 
 const Detail: React.FC = () => {
   const { id } = useParams()

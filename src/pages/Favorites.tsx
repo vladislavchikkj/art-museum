@@ -1,11 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import SmallCard from '../components/SmallCard'
 import TitleSection from '../components/TitleSection'
 import ArtContext from '../context/ArtContext'
 
 const Favorites: React.FC = () => {
-  const { artworks, loading, error } = useContext(ArtContext) // Получите данные из контекста
+  const { artworks, loading, error } = useContext(ArtContext)
+  const [favoriteIds, setFavoriteIds] = useState<number[]>([])
+
+  useEffect(() => {
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
+    setFavoriteIds(bookmarks)
+  }, [])
+
+  const handleRemove = (id: number) => {
+    setFavoriteIds((prevIds) =>
+      prevIds.filter((bookmarkId) => bookmarkId !== id)
+    )
+  }
 
   if (loading) {
     return <div>Loading...</div>
@@ -14,6 +26,11 @@ const Favorites: React.FC = () => {
   if (error) {
     return <div>Error: {error}</div>
   }
+
+  const favoriteArtworks = artworks.filter((artwork) =>
+    favoriteIds.includes(artwork.id)
+  )
+
   return (
     <>
       <Heading>
@@ -28,23 +45,17 @@ const Favorites: React.FC = () => {
         />
       </Heading>
       <Grid>
-        {artworks.map(
-          (artwork: {
-            id: number
-            title: string
-            artist_display: string
-            image_id: string
-          }) => (
-            <SmallCard
-              id={artwork.id}
-              key={artwork.id}
-              title={artwork.title}
-              author={artwork.artist_display}
-              status={'Public'} // Не уверен, что это поле правильное
-              imageId={artwork.image_id}
-            />
-          )
-        )}
+        {favoriteArtworks.map((artwork) => (
+          <SmallCard
+            id={artwork.id}
+            key={artwork.id}
+            title={artwork.title}
+            author={artwork.artist_display}
+            status={artwork.is_public_domain}
+            imageId={artwork.image_id}
+            onRemove={handleRemove}
+          />
+        ))}
       </Grid>
     </>
   )
@@ -63,6 +74,7 @@ const Bookmark = styled.img`
   width: 2rem;
   padding-top: 2px;
 `
+
 const Highlight = styled.span`
   display: flex;
   justify-content: center;

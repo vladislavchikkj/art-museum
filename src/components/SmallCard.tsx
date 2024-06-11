@@ -7,8 +7,9 @@ interface SmallCardProps {
   id: number
   title: string
   author: string
-  status: string
+  status: boolean
   imageId: string
+  onRemove?: (id: number) => void
 }
 
 const SmallCard: React.FC<SmallCardProps> = ({
@@ -17,6 +18,7 @@ const SmallCard: React.FC<SmallCardProps> = ({
   author,
   status,
   imageId,
+  onRemove,
 }) => {
   return (
     <Card to={`/detail/${id}`}>
@@ -33,9 +35,11 @@ const SmallCard: React.FC<SmallCardProps> = ({
       <Info>
         <Title>{title}</Title>
         <Author>{author}</Author>
-        <Status>{status}</Status>
+        <Status>
+          {status ? <strong>Public</strong> : <strong>Private</strong>}
+        </Status>
       </Info>
-      <BookmarkButton />
+      <BookmarkButton id={id} onRemove={onRemove} />
     </Card>
   )
 }
