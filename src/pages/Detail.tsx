@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
+import BookmarkButton from '../components/BookmarkButton'
 import ArtContext from '../context/ArtContext'
 import { Artwork } from '../types/types'
 
@@ -25,6 +26,9 @@ const Detail: React.FC = () => {
         ) : (
           'No Image'
         )}
+        <AddToFav>
+          <BookmarkButton id={artwork.id} />
+        </AddToFav>
       </ImagePlaceholder>
       <Content>
         <div>
@@ -80,7 +84,7 @@ const ImagePlaceholder = styled.div`
   position: relative;
   background: #fafafa;
   width: 100%;
-  height: 30rem;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,6 +92,11 @@ const ImagePlaceholder = styled.div`
   font-size: 18px;
   border-radius: 10px;
   overflow: hidden;
+`
+const AddToFav = styled.div`
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
 `
 const Image = styled.img`
   align-self: start;

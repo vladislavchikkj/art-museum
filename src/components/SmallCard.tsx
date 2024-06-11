@@ -58,14 +58,16 @@ const Card = styled(Link)`
 `
 
 const ImagePlaceholder = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   background-color: #e0e0e0;
   border-radius: 5px;
   margin-right: 10px;
 `
 
 const Info = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1;
   text-align: left;
 `
@@ -77,6 +79,7 @@ const Title = styled.p`
 `
 
 const Author = styled.p`
+  width: 80%;
   font-size: 12px;
   color: #f39c12;
   margin: 0;
@@ -86,6 +89,7 @@ const Status = styled.p`
   font-size: 12px;
   color: #666;
   margin: 0;
+  padding-top: 10px;
 `
 const Image = styled.img`
   width: 100%;

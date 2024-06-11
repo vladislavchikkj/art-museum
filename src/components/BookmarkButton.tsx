@@ -36,7 +36,7 @@ const BookmarkButton: React.FC<BookmarkButtonProps> = ({ id, onRemove }) => {
   return (
     <Circle onClick={handleBookmark}>
       <BookmarkIcon
-        src={isBookmarked ? 'bookmarked.svg' : 'bookmark.svg'}
+        src={isBookmarked ? '/bookmarked.svg' : '/bookmark.svg'}
         alt="bookmark"
       />
     </Circle>
