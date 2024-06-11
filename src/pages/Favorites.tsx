@@ -4,6 +4,7 @@ import { fetchFavoritesArtworks } from "../api/favoritesApi";
 import SmallCard from "../components/SmallCard";
 import TitleSection from "../components/TitleSection";
 import { Artwork } from "../types";
+import Spinner from "../components/Spinner";
 
 const Favorites: React.FC = () => {
   const [, setFavoriteIds] = useState<number[]>([]);
@@ -38,7 +39,7 @@ const Favorites: React.FC = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (error) {

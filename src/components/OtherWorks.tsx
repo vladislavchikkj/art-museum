@@ -3,12 +3,13 @@ import styled from "styled-components";
 import ArtContext from "../context/ArtContext";
 import SmallCard from "./SmallCard";
 import TitleSection from "./TitleSection";
+import Spinner from "./Spinner";
 
 const OtherWorks: React.FC = () => {
   const { artworks, loading, error } = useContext(ArtContext);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (error) {
