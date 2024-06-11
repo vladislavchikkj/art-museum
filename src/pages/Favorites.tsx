@@ -1,7 +1,7 @@
+import SmallCard from '@components/SmallCard'
+import TitleSection from '@components/TitleSection'
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import SmallCard from '../components/SmallCard'
-import TitleSection from '../components/TitleSection'
 import ArtContext from '../context/ArtContext'
 
 const Favorites: React.FC = () => {

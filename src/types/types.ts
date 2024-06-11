@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface Artwork {
   id: number
   title: string
@@ -8,4 +10,20 @@ export interface Artwork {
   credit_line?: string
   department_title?: string
   is_public_domain: boolean
+}
+
+export interface ArtContextProps {
+  artworks: Artwork[]
+  loading: boolean
+  error: string | null
+}
+
+export interface ArtProviderProps {
+  children: ReactNode
+}
+
+export interface PaginationProps {
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
 }

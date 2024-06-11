@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import BookmarkButton from '../components/BookmarkButton'
 import ArtContext from '../context/ArtContext'
 import { Artwork } from '../types/types'
+import BookmarkButton from '@components/BookmarkButton'
 
 const Detail: React.FC = () => {
   const { id } = useParams()
@@ -24,7 +24,9 @@ const Detail: React.FC = () => {
             alt={artwork.title}
           />
         ) : (
-          'No Image'
+          <Mock>
+            <div>No Image</div>
+          </Mock>
         )}
         <AddToFav>
           <BookmarkButton id={artwork.id} />
@@ -100,6 +102,16 @@ const Image = styled.img`
   max-height: 600px;
   object-fit: contain;
   border-radius: 10px;
+`
+const Mock = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  width: 100%;
+  min-height: 600px;
+  border-radius: 10px;
+  background: #e0e0e033;
 `
 
 const Content = styled.div`

@@ -1,4 +1,3 @@
-import { FunctionComponent } from 'react'
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 import GlobalStyles from '../styles/GlobalStyles'
@@ -6,9 +5,7 @@ import Container from './Container'
 import Footer from './Footer'
 import Header from './Header'
 
-interface LayoutProps {}
-
-const Layout: FunctionComponent<LayoutProps> = () => {
+const Layout: React.FC = () => {
   return (
     <PageWrapper>
       <GlobalStyles />

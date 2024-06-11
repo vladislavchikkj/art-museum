@@ -1,9 +1,9 @@
-const BASE_URL = 'https://api.artic.edu/api/v1/artworks'
+import { API_URL } from '../constants/constants'
 
 export const fetchArtworks = async (page: number, query = '') => {
-  const url = new URL(BASE_URL)
+  const url = new URL(API_URL)
   url.searchParams.append('page', page.toString())
-  url.searchParams.append('limit', '20') // количество картин на страницу, можно изменить по необходимости
+  url.searchParams.append('limit', '9') // количество картин на страницу, можно изменить по необходимости
   if (query) {
     url.searchParams.append('q', query)
   }

@@ -1,11 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-
-interface PaginationProps {
-  currentPage: number
-  totalPages: number
-  onPageChange: (page: number) => void
-}
+import { INITIAL_PAGE_INDEX } from '../constants'
+import { PaginationProps } from '../types'
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
@@ -20,7 +16,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
     startPage = Math.max(1, Math.min(startPage, endPage - maxVisiblePages + 1))
 
-    if (currentPage > 1) {
+    if (currentPage > INITIAL_PAGE_INDEX) {
       pageButtons.push(
         <PageButton key="prev" onClick={() => onPageChange(currentPage - 1)}>
           ‹
