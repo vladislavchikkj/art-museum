@@ -7,6 +7,7 @@ import Header from './Header'
 
 const Layout: React.FC = () => {
   return (
+    // <ErrorBoundary>
     <PageWrapper>
       <GlobalStyles />
       <Header />
@@ -17,6 +18,7 @@ const Layout: React.FC = () => {
       </ContentWrapper>
       <Footer />
     </PageWrapper>
+    // </ErrorBoundary>
   )
 }
 

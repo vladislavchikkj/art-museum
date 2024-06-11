@@ -1,8 +1,8 @@
-import SmallCard from '@components/SmallCard'
-import TitleSection from '@components/TitleSection'
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import ArtContext from '../context/ArtContext'
+import SmallCard from '../components/SmallCard'
+import TitleSection from '../components/TitleSection'
 
 const Favorites: React.FC = () => {
   const { artworks, loading, error } = useContext(ArtContext)
