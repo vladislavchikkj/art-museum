@@ -53,7 +53,7 @@ const Circle = styled.div`
   height: 3rem;
   border-radius: 100%;
   cursor: pointer;
-  background-color: #f9f9f9;
+  background-color: #ebebeb;
   &:hover {
     background-color: #fbd7b2;
     border-radius: 100%;

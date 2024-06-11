@@ -1,6 +1,17 @@
 import React, { ReactNode, createContext, useEffect, useState } from 'react'
 import { fetchArtworks } from '../api/artApi'
-import { Artwork } from '../types/types'
+
+export interface Artwork {
+  id: number
+  title: string
+  artist_display: string
+  artist_title: string
+  image_id: string
+  dimensions?: string
+  credit_line?: string
+  department_title?: string
+  is_public_domain: boolean
+}
 
 interface ArtContextProps {
   artworks: Artwork[]

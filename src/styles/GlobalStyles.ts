@@ -8,7 +8,12 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #FAFAFA;
+    box-sizing: border-box;
+    height: 100%;
+  }
     
+  #root {
+    height: 100%;
   }
 
   code {

@@ -42,7 +42,7 @@ const SearchBox = styled.div`
   background-color: #f5f5f5;
   border-radius: 5px;
   padding: 10px 20px;
-  width: 100%;
+  width: 60%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 `

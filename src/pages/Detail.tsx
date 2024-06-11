@@ -52,11 +52,7 @@ const Detail: React.FC = () => {
               <strong>Repository:</strong> {artwork.department_title}
             </InfoItem>
             <InfoItem>
-              {artwork.is_public_domain ? (
-                <strong>Public</strong>
-              ) : (
-                <strong>Private</strong>
-              )}
+              {artwork.is_public_domain ? <b>Public</b> : <b>Private</b>}
             </InfoItem>
           </InfoList>
         </Overview>
@@ -101,7 +97,7 @@ const AddToFav = styled.div`
 const Image = styled.img`
   align-self: start;
   width: 100%;
-  height: 100%;
+  max-height: 600px;
   object-fit: contain;
   border-radius: 10px;
 `
@@ -127,6 +123,7 @@ const Author = styled.p`
   font-size: 18px;
   color: #f39c12;
   margin: 5px 0;
+  font-weight: 500;
 `
 
 const Date = styled.p`
@@ -157,4 +154,7 @@ const InfoList = styled.ul`
 
 const InfoItem = styled.li`
   margin-bottom: 5px;
+  strong {
+    color: #f39c12;
+  }
 `
