@@ -1,10 +1,10 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Layout from './components/Layout'
-import { ArtProvider } from './context/ArtContext'
-import Detail from './pages/Detail'
-import Favorites from './pages/Favorites'
-import Home from './pages/Home'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import { ArtProvider } from "./context/ArtContext";
+import Detail from "./pages/Detail";
+import Favorites from "./pages/Favorites";
+import Home from "./pages/Home";
 
 const App: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const App: React.FC = () => {
         </Route>
       </Routes>
     </ArtProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
