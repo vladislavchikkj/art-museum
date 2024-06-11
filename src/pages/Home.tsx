@@ -1,7 +1,7 @@
-import React from 'react'
-import OtherWorks from '../components/OtherWorks'
-import SearchForm from '../components/SearchForm'
-import Topics from '../components/Topics'
+import React from "react";
+import OtherWorks from "../components/OtherWorks";
+import SearchForm from "../components/SearchForm";
+import Topics from "../components/Topics";
 
 const Home: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Home: React.FC = () => {
       <Topics />
       <OtherWorks />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

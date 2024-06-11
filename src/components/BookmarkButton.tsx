@@ -1,49 +1,49 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
 interface BookmarkButtonProps {
-  id: number
-  onRemove?: (id: number) => void
+  id: number;
+  onRemove?: (id: number) => void;
 }
 
 const BookmarkButton: React.FC<BookmarkButtonProps> = ({ id, onRemove }) => {
-  const [isBookmarked, setIsBookmarked] = useState(false)
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   useEffect(() => {
-    const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
-    setIsBookmarked(bookmarks.includes(id))
-  }, [id])
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+    setIsBookmarked(bookmarks.includes(id));
+  }, [id]);
 
   const handleBookmark = (e: React.MouseEvent) => {
-    e.preventDefault()
-    const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]')
+    e.preventDefault();
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
     if (isBookmarked) {
       const updatedBookmarks = bookmarks.filter(
         (bookmarkId: number) => bookmarkId !== id
-      )
-      localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks))
-      setIsBookmarked(false)
+      );
+      localStorage.setItem("bookmarks", JSON.stringify(updatedBookmarks));
+      setIsBookmarked(false);
       if (onRemove) {
-        onRemove(id)
+        onRemove(id);
       }
     } else {
-      bookmarks.push(id)
-      localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
-      setIsBookmarked(true)
+      bookmarks.push(id);
+      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+      setIsBookmarked(true);
     }
-  }
+  };
 
   return (
     <Circle onClick={handleBookmark}>
       <BookmarkIcon
-        src={isBookmarked ? '/bookmarked.svg' : '/bookmark.svg'}
+        src={isBookmarked ? "/bookmarked.svg" : "/bookmark.svg"}
         alt="bookmark"
       />
     </Circle>
-  )
-}
+  );
+};
 
-export default BookmarkButton
+export default BookmarkButton;
 
 const Circle = styled.div`
   display: flex;
@@ -58,9 +58,9 @@ const Circle = styled.div`
     background-color: #fbd7b2;
     border-radius: 100%;
   }
-`
+`;
 const BookmarkIcon = styled.img`
   width: 1.3rem;
   height: 1.3rem;
   cursor: pointer;
-`
+`;
