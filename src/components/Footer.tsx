@@ -46,7 +46,7 @@ const LogoWrapper = styled(Link)`
 const IconLogo = styled.div`
   width: 48px;
   height: 48px;
-  background-image: url(logo.png);
+  background-image: url(/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
 `

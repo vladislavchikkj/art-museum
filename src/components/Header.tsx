@@ -18,12 +18,12 @@ const Header: React.FC = () => {
           <LinkWrapper>
             {location.pathname != '/' && (
               <FavoritesLink to="/">
-                <IconBookmark src="home.png" alt="home" />
+                <IconBookmark src="/home.png" alt="home" />
                 <span>Home</span>
               </FavoritesLink>
             )}
             <FavoritesLink to="/favorites">
-              <IconBookmark src="bookmark-home.png" alt="bookmark" />
+              <IconBookmark src="/bookmark-home.png" alt="bookmark" />
               <span>Your favorites</span>
             </FavoritesLink>
           </LinkWrapper>
@@ -57,7 +57,7 @@ const LogoWrapper = styled(Link)`
 const IconLogo = styled.div`
   width: 48px;
   height: 48px;
-  background-image: url(logo.png);
+  background-image: url(/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
 `
