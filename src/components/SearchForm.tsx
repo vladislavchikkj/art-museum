@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 import { searchArtworks } from "../api/searchArtworks";
+import { useDebounce } from "../hooks/useDebounce"; // Импортируем хук
 import { Artwork } from "../types";
 import SmallCard from "./SmallCard";
 
@@ -9,19 +10,21 @@ const SearchForm: React.FC = () => {
   const [results, setResults] = useState<Artwork[]>([]);
   const [error, setError] = useState<string>("");
 
+  const debouncedQuery = useDebounce(query, 500);
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
 
   const handleSearch = async () => {
-    if (query.trim() === "") {
+    if (debouncedQuery.trim() === "") {
       setError("Please enter a search term");
       return;
     }
 
     setError("");
     try {
-      const artworks = await searchArtworks(query);
+      const artworks = await searchArtworks(debouncedQuery);
       setResults(artworks);
     } catch (error) {
       setError("Failed to fetch data");
