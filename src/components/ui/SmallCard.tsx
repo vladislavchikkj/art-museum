@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { SmallCardProps } from "../types";
+import { SmallCardProps } from "../../types";
 import BookmarkButton from "./BookmarkButton";
 
 const SmallCard: React.FC<SmallCardProps> = ({

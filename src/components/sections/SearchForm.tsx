@@ -1,9 +1,9 @@
 import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
-import { searchArtworks } from "../api/searchArtworks";
-import { useDebounce } from "../hooks/useDebounce"; // Импортируем хук
-import { Artwork } from "../types";
-import SmallCard from "./SmallCard";
+import { searchArtworks } from "../../api/searchArtworks";
+import { useDebounce } from "../../hooks/useDebounce"; // Импортируем хук
+import { Artwork } from "../../types";
+import SmallCard from "../ui/SmallCard";
 
 const SearchForm: React.FC = () => {
   const [query, setQuery] = useState<string>("");

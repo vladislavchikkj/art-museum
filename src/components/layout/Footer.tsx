@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import Container from './Container'
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import Container from "./Container";
 
 const Footer: React.FC = () => {
   return (
@@ -18,15 +18,15 @@ const Footer: React.FC = () => {
         </FooterWrapper>
       </Container>
     </FooterDiv>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
 
 const FooterDiv = styled.footer`
   background: white;
   margin-top: auto;
-`
+`;
 
 const FooterWrapper = styled.div`
   padding: 1rem 0 1rem 0;
@@ -34,14 +34,14 @@ const FooterWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
-`
+`;
 
 const LogoWrapper = styled(Link)`
   display: flex;
   align-items: end;
   gap: 1rem;
   text-decoration: none;
-`
+`;
 
 const IconLogo = styled.div`
   width: 48px;
@@ -49,7 +49,7 @@ const IconLogo = styled.div`
   background-image: url(/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
-`
+`;
 
 const Title = styled.h1`
   font-size: 1rem;
@@ -58,7 +58,7 @@ const Title = styled.h1`
   span {
     color: #f0a500;
   }
-`
+`;
 
 const ModsenLogo = styled(Link)`
   display: flex;
@@ -74,4 +74,4 @@ const ModsenLogo = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
-`
+`;

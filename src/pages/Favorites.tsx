@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { fetchFavoritesArtworks } from "../api/favoritesApi";
-import SmallCard from "../components/SmallCard";
-import TitleSection from "../components/TitleSection";
+import SmallCard from "../components/ui/SmallCard";
+import Spinner from "../components/ui/Spinner";
+import TitleSection from "../components/ui/TitleSection";
 import { Artwork } from "../types";
-import Spinner from "../components/Spinner";
 
 const Favorites: React.FC = () => {
   const [, setFavoriteIds] = useState<number[]>([]);

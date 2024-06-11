@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import { INITIAL_PAGE_INDEX } from '../constants'
-import { PaginationProps } from '../types'
+import React from "react";
+import styled from "styled-components";
+import { INITIAL_PAGE_INDEX } from "../../constants";
+import { PaginationProps } from "../../types";
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
@@ -9,37 +9,36 @@ const Pagination: React.FC<PaginationProps> = ({
   onPageChange,
 }) => {
   const renderPageButtons = () => {
-    const pageButtons = []
-    const maxVisiblePages = 20
-    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2))
-    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1)
+    const pageButtons = [];
+    const maxVisiblePages = 20;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
 
-    startPage = Math.max(1, Math.min(startPage, endPage - maxVisiblePages + 1))
+    startPage = Math.max(1, Math.min(startPage, endPage - maxVisiblePages + 1));
 
     if (currentPage > INITIAL_PAGE_INDEX) {
       pageButtons.push(
         <PageButton key="prev" onClick={() => onPageChange(currentPage - 1)}>
           ‹
         </PageButton>
-      )
+      );
     } else {
       pageButtons.push(
         <PageButton key="prev" disabled>
           ‹
         </PageButton>
-      )
+      );
     }
 
     for (let i = startPage; i <= endPage; i++) {
       pageButtons.push(
         <PageButton
           key={i}
-          className={currentPage === i ? 'active' : ''}
-          onClick={() => onPageChange(i)}
-        >
+          className={currentPage === i ? "active" : ""}
+          onClick={() => onPageChange(i)}>
           {i}
         </PageButton>
-      )
+      );
     }
 
     if (currentPage < totalPages) {
@@ -47,29 +46,29 @@ const Pagination: React.FC<PaginationProps> = ({
         <PageButton key="next" onClick={() => onPageChange(currentPage + 1)}>
           ›
         </PageButton>
-      )
+      );
     } else {
       pageButtons.push(
         <PageButton key="next" disabled>
           ›
         </PageButton>
-      )
+      );
     }
 
-    return pageButtons
-  }
+    return pageButtons;
+  };
 
-  return <PaginationWrapper>{renderPageButtons()}</PaginationWrapper>
-}
+  return <PaginationWrapper>{renderPageButtons()}</PaginationWrapper>;
+};
 
-export default Pagination
+export default Pagination;
 
 const PaginationWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
   margin: 20px 0;
-`
+`;
 
 const PageButton = styled.button`
   background: #fafafa;
@@ -94,4 +93,4 @@ const PageButton = styled.button`
     opacity: 0;
     cursor: default;
   }
-`
+`;

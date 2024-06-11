@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import ArtContext from "../context/ArtContext";
-import SmallCard from "./SmallCard";
-import TitleSection from "./TitleSection";
-import Spinner from "./Spinner";
+import ArtContext from "../../context/ArtContext";
+import SmallCard from "../ui/SmallCard";
+import Spinner from "../ui/Spinner";
+import TitleSection from "../ui/TitleSection";
 
 const OtherWorks: React.FC = () => {
   const { artworks, loading, error } = useContext(ArtContext);

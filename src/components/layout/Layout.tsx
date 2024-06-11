@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import GlobalStyles from "../styles/GlobalStyles";
+import GlobalStyles from "../../styles/GlobalStyles";
+import ErrorBoundary from "../shared/ErrorBoundary";
 import Container from "./Container";
-import ErrorBoundary from "./ErrorBoundary";
 import Footer from "./Footer";
 import Header from "./Header";
 

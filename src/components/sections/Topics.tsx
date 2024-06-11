@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { ITEMS_PER_PAGE } from "../constants";
-import ArtContext from "../context/ArtContext";
-import BookmarkButton from "./BookmarkButton";
-import Pagination from "./Pagination";
-import TitleSection from "./TitleSection";
-import Spinner from "./Spinner";
+import { ITEMS_PER_PAGE } from "../../constants";
+import ArtContext from "../../context/ArtContext";
+import Pagination from "../ui/Pagination";
+import BookmarkButton from "../ui/BookmarkButton";
+import Spinner from "../ui/Spinner";
+import TitleSection from "../ui/TitleSection";
 
 const Topics: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
