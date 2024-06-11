@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
+import BurgerMenu from './BurgerMenu'
 import Container from './Container'
 
 const Header: React.FC = () => {
@@ -15,8 +16,9 @@ const Header: React.FC = () => {
               Museum of <span>Art</span>
             </Title>
           </LogoWrapper>
+          <BurgerMenu />
           <LinkWrapper>
-            {location.pathname != '/' && (
+            {location.pathname !== '/' && (
               <FavoritesLink to="/">
                 <IconBookmark src="/home.png" alt="home" />
                 <span>Home</span>
@@ -37,10 +39,11 @@ export default Header
 
 const HeaderDiv = styled.header`
   background: linear-gradient(to right, #333, #444);
+  position: relative;
 `
 
 const HeaderWrapper = styled.div`
-  padding: 1rem 0 1rem 0;
+  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,11 +64,6 @@ const IconLogo = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
 `
-const IconBookmark = styled.img`
-  width: 24px;
-  height: 24px;
-  color: #e0a449;
-`
 
 const Title = styled.h1`
   font-size: 1rem;
@@ -82,7 +80,12 @@ const LinkWrapper = styled.div`
   color: white;
   text-decoration: none;
   gap: 1em;
+
+  @media (max-width: 650px) {
+    display: none;
+  }
 `
+
 const FavoritesLink = styled(Link)`
   display: flex;
   align-items: center;
@@ -93,4 +96,10 @@ const FavoritesLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
+`
+
+const IconBookmark = styled.img`
+  width: 24px;
+  height: 24px;
+  color: #e0a449;
 `

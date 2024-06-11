@@ -12,7 +12,7 @@ const Detail: React.FC = () => {
     (art: Artwork) => art.id === parseInt(id || '', 10)
   )
   if (!artwork) {
-    return <div>Искусство не найдено</div>
+    return <div>Loading...</div>
   }
   return (
     <Wrapper>
@@ -27,31 +27,35 @@ const Detail: React.FC = () => {
         )}
       </ImagePlaceholder>
       <Content>
-        <Title>{artwork.title}</Title>
-        <Author>{artwork.artist_title}</Author>
-        <Date>1535-45</Date>
-        <SectionTitle>Overview</SectionTitle>
-        <InfoList>
-          <InfoItem>
-            <strong>Artist nationality:</strong> {artwork.artist_display}
-          </InfoItem>
-          <InfoItem>
-            <strong>Dimensions:</strong> Sheet: {artwork.dimensions}
-          </InfoItem>
-          <InfoItem>
-            <strong>Credit Line:</strong> {artwork.credit_line}
-          </InfoItem>
-          <InfoItem>
-            <strong>Repository:</strong> {artwork.department_title}
-          </InfoItem>
-          <InfoItem>
-            {artwork.is_public_domain ? (
-              <strong>Public</strong>
-            ) : (
-              <strong>Private</strong>
-            )}
-          </InfoItem>
-        </InfoList>
+        <div>
+          <Title>{artwork.title}</Title>
+          <Author>{artwork.artist_title}</Author>
+          <Date>1535-45</Date>
+        </div>
+        <Overview>
+          <SectionTitle>Overview</SectionTitle>
+          <InfoList>
+            <InfoItem>
+              <strong>Artist nationality:</strong> {artwork.artist_display}
+            </InfoItem>
+            <InfoItem>
+              <strong>Dimensions:</strong> Sheet: {artwork.dimensions}
+            </InfoItem>
+            <InfoItem>
+              <strong>Credit Line:</strong> {artwork.credit_line}
+            </InfoItem>
+            <InfoItem>
+              <strong>Repository:</strong> {artwork.department_title}
+            </InfoItem>
+            <InfoItem>
+              {artwork.is_public_domain ? (
+                <strong>Public</strong>
+              ) : (
+                <strong>Private</strong>
+              )}
+            </InfoItem>
+          </InfoList>
+        </Overview>
       </Content>
     </Wrapper>
   )
@@ -66,10 +70,15 @@ const Wrapper = styled.div`
   height: 100%;
   gap: 2rem;
   padding: 2rem 0 2rem 0;
+
+  @media (max-width: 820px) {
+    flex-direction: column;
+  }
 `
 
 const ImagePlaceholder = styled.div`
-  background: #e0e0e0;
+  position: relative;
+  background: #fafafa;
   width: 100%;
   height: 30rem;
   display: flex;
@@ -77,22 +86,25 @@ const ImagePlaceholder = styled.div`
   justify-content: center;
   color: #999;
   font-size: 18px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 10px;
   overflow: hidden;
 `
 const Image = styled.img`
+  align-self: start;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  object-fit: contain;
+  border-radius: 10px;
 `
 
 const Content = styled.div`
   width: 100%;
   max-width: 600px;
+  height: 100%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 const Title = styled.h1`
@@ -102,6 +114,7 @@ const Title = styled.h1`
 `
 
 const Author = styled.p`
+  padding-top: 20px;
   font-size: 18px;
   color: #f39c12;
   margin: 5px 0;
@@ -109,8 +122,14 @@ const Author = styled.p`
 
 const Date = styled.p`
   font-size: 16px;
+  font-weight: bold;
   color: #666;
   margin: 5px 0;
+`
+const Overview = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `
 
 const SectionTitle = styled.h2`
