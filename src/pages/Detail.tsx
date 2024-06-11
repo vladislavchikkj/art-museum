@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import BookmarkButton from "../components/BookmarkButton";
 import { Artwork } from "../types/types";
+import Spinner from "../components/Spinner";
 
 const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -28,14 +29,14 @@ const Detail: React.FC = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (error) {
     return <div>{error}</div>;
   }
   if (!artwork) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
   return (
     <Wrapper>
