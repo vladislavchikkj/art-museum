@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { INITIAL_PAGE_INDEX } from "../../constants";
+import { INITIAL_PAGE_INDEX, MAX_VISIBLE_PAGES } from "../../constants";
 import { PaginationProps } from "../../types";
 
 const Pagination: React.FC<PaginationProps> = ({
@@ -10,11 +10,16 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   const renderPageButtons = () => {
     const pageButtons = [];
-    const maxVisiblePages = 20;
-    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+    let startPage = Math.max(
+      1,
+      currentPage - Math.floor(MAX_VISIBLE_PAGES / 2)
+    );
+    const endPage = Math.min(totalPages, startPage + MAX_VISIBLE_PAGES - 1);
 
-    startPage = Math.max(1, Math.min(startPage, endPage - maxVisiblePages + 1));
+    startPage = Math.max(
+      1,
+      Math.min(startPage, endPage - MAX_VISIBLE_PAGES + 1)
+    );
 
     if (currentPage > INITIAL_PAGE_INDEX) {
       pageButtons.push(
