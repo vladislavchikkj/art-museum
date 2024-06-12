@@ -1,6 +1,6 @@
+import Layout from "@components/layout/Layout";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Layout from "./components/layout/Layout";
 import { ArtProvider } from "./context/ArtContext";
 import Detail from "./pages/Detail/Detail";
 import Favorites from "./pages/Favorites/Favorites";

@@ -1,9 +1,9 @@
+import { fetchFavoritesArtworks } from "@api/favoritesApi";
+import SmallCard from "@components/ui/SmallCard/SmallCard";
+import Spinner from "@components/ui/Spinner";
+import TitleSection from "@components/ui/TitleSection";
+import { Artwork } from "@type/types";
 import React, { useEffect, useState } from "react";
-import { fetchFavoritesArtworks } from "../../api/favoritesApi";
-import SmallCard from "../../components/ui/SmallCard/SmallCard";
-import Spinner from "../../components/ui/Spinner";
-import TitleSection from "../../components/ui/TitleSection";
-import { Artwork } from "../../types";
 import { Bookmark, Grid, Heading, Highlight } from "./Favorites.styles";
 
 const Favorites: React.FC = () => {
@@ -23,9 +23,9 @@ const Favorites: React.FC = () => {
       const artworks = await fetchFavoritesArtworks(ids);
       setArtworks(artworks);
       setLoading(false);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      setError(error.message);
+    } catch (err) {
+      const errorMessage = (err as Error).message;
+      setError(errorMessage);
       setLoading(false);
     }
   };

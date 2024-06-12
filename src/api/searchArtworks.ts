@@ -1,4 +1,4 @@
-import { Artwork } from "../types";
+import { Artwork } from "@type/types";
 
 export const searchArtworks = async (query: string): Promise<Artwork[]> => {
   try {

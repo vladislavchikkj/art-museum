@@ -1,4 +1,4 @@
-import { Artwork } from "../types";
+import { Artwork } from "@type/types";
 
 export const sortResults = (option: string, data: Artwork[]): Artwork[] => {
   const sortedData = [...data];

@@ -1,8 +1,8 @@
+import BookmarkButton from "@components/ui/BookmarkButton";
+import Spinner from "@components/ui/Spinner";
+import { Artwork } from "@type/types";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import BookmarkButton from "../../components/ui/BookmarkButton";
-import Spinner from "../../components/ui/Spinner";
-import { Artwork } from "../../types/types";
 import {
   AddToFav,
   Author,
