@@ -4,7 +4,7 @@ import { searchArtworks } from "../../../api/searchArtworks";
 import { Artwork } from "../../../types";
 import { sortResults } from "../../../utils/sortUtils.ts";
 import { searchSchema } from "../../../utils/validationSchema";
-import SmallCard from "../../ui/SmallCard";
+import SmallCard from "../../ui/SmallCard/SmallCard.tsx";
 import Spinner from "../../ui/Spinner";
 import {
   ErrorMessage,

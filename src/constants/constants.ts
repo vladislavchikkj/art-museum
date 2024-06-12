@@ -3,3 +3,4 @@ export const API_URL =
 export const INITIAL_PAGE_INDEX = 1;
 export const ITEMS_PER_PAGE = 3;
 export const MAX_VISIBLE_PAGES = 20;
+export const BOOKMARKS_LOCAL_KEY = "bookmarks";

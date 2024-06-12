@@ -37,3 +37,8 @@ export interface SmallCardProps {
   imageId: string;
   onRemove?: (id: number) => void;
 }
+
+export interface TitleSectionProps {
+  subtitle: string;
+  title: string;
+}

@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
-import BookmarkButton from "../components/ui/BookmarkButton";
-import Spinner from "../components/ui/Spinner";
-import { Artwork } from "../types/types";
+import BookmarkButton from "../../components/ui/BookmarkButton";
+import Spinner from "../../components/ui/Spinner";
+import { Artwork } from "../../types/types";
+import {
+  AddToFav,
+  Author,
+  Content,
+  Image,
+  ImagePlaceholder,
+  InfoItem,
+  InfoList,
+  Mock,
+  Overview,
+  SectionTitle,
+  Title,
+  Wrapper,
+} from "./Detail.styles";
 
 const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -87,109 +100,3 @@ const Detail: React.FC = () => {
 };
 
 export default Detail;
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  height: 100%;
-  gap: 2rem;
-  padding: 2rem 0 2rem 0;
-
-  @media (max-width: 820px) {
-    flex-direction: column;
-  }
-`;
-
-const ImagePlaceholder = styled.div`
-  position: relative;
-  background: #fafafa;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 18px;
-  border-radius: 10px;
-  overflow: hidden;
-`;
-const AddToFav = styled.div`
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-`;
-const Image = styled.img`
-  align-self: start;
-  width: 100%;
-  max-height: 600px;
-  object-fit: contain;
-  border-radius: 10px;
-`;
-const Mock = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: start;
-  width: 100%;
-  min-height: 600px;
-  border-radius: 10px;
-  background: #e0e0e033;
-`;
-
-const Content = styled.div`
-  width: 100%;
-  max-width: 600px;
-  height: 100%;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-const Title = styled.h1`
-  font-size: 24px;
-  color: #333;
-  margin: 0;
-`;
-
-const Author = styled.p`
-  padding-top: 20px;
-  font-size: 18px;
-  color: #f39c12;
-  margin: 5px 0;
-  font-weight: 500;
-`;
-
-const Date = styled.p`
-  font-size: 16px;
-  font-weight: bold;
-  color: #666;
-  margin: 5px 0;
-`;
-const Overview = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 20px;
-  color: #333;
-  margin: 20px 0 10px;
-`;
-
-const InfoList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
-  color: #666;
-`;
-
-const InfoItem = styled.li`
-  margin-bottom: 5px;
-  strong {
-    color: #f39c12;
-  }
-`;

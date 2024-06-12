@@ -1,16 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const Spinner: React.FC = () => {
-  return (
-    <SpinerWrapper>
-      <StyledSpinner />
-    </SpinerWrapper>
-  );
-};
-
-export default Spinner;
-
 const spin = keyframes`
   0% {
     transform: rotate(0deg);
@@ -39,3 +29,13 @@ const StyledSpinner = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+const Spinner: React.FC = () => {
+  return (
+    <SpinerWrapper>
+      <StyledSpinner />
+    </SpinerWrapper>
+  );
+};
+
+export default Spinner;

@@ -1,34 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Container from "./Container";
 
-const Footer: React.FC = () => {
-  return (
-    <FooterDiv>
-      <Container>
-        <FooterWrapper>
-          <LogoWrapper to="/">
-            <IconLogo />
-            <Title>
-              Museum of <span>Art</span>
-            </Title>
-          </LogoWrapper>
-          <ModsenLogo to="/"></ModsenLogo>
-        </FooterWrapper>
-      </Container>
-    </FooterDiv>
-  );
-};
-
-export default Footer;
-
-const FooterDiv = styled.footer`
+export const FooterDiv = styled.footer`
   background: white;
   margin-top: auto;
 `;
 
-const FooterWrapper = styled.div`
+export const FooterWrapper = styled.div`
   padding: 1rem 0 1rem 0;
   display: flex;
   justify-content: space-between;
@@ -36,14 +14,14 @@ const FooterWrapper = styled.div`
   color: white;
 `;
 
-const LogoWrapper = styled(Link)`
+export const LogoWrapper = styled(Link)`
   display: flex;
   align-items: end;
   gap: 1rem;
   text-decoration: none;
 `;
 
-const IconLogo = styled.div`
+export const IconLogo = styled.div`
   width: 48px;
   height: 48px;
   background-image: url(/logo.png);
@@ -51,7 +29,7 @@ const IconLogo = styled.div`
   background-size: contain;
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-size: 1rem;
   margin: 0;
   color: black;
@@ -60,7 +38,7 @@ const Title = styled.h1`
   }
 `;
 
-const ModsenLogo = styled(Link)`
+export const ModsenLogo = styled(Link)`
   display: flex;
   align-items: center;
   color: white;

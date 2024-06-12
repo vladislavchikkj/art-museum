@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { fetchFavoritesArtworks } from "../api/favoritesApi";
-import SmallCard from "../components/ui/SmallCard";
-import Spinner from "../components/ui/Spinner";
-import TitleSection from "../components/ui/TitleSection";
-import { Artwork } from "../types";
+import { fetchFavoritesArtworks } from "../../api/favoritesApi";
+import SmallCard from "../../components/ui/SmallCard/SmallCard";
+import Spinner from "../../components/ui/Spinner";
+import TitleSection from "../../components/ui/TitleSection";
+import { Artwork } from "../../types";
+import { Bookmark, Grid, Heading, Highlight } from "./Favorites.styles";
 
 const Favorites: React.FC = () => {
   const [, setFavoriteIds] = useState<number[]>([]);
@@ -23,6 +23,7 @@ const Favorites: React.FC = () => {
       const artworks = await fetchFavoritesArtworks(ids);
       setArtworks(artworks);
       setLoading(false);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       setError(error.message);
       setLoading(false);
@@ -77,31 +78,3 @@ const Favorites: React.FC = () => {
 };
 
 export default Favorites;
-
-const Heading = styled.h1`
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center;
-  color: #333;
-`;
-
-const Bookmark = styled.img`
-  width: 2rem;
-  padding-top: 2px;
-`;
-
-const Highlight = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  color: #ff7a00;
-  padding-bottom: 50px;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 20px;
-  padding-bottom: 4rem;
-`;
