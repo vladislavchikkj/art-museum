@@ -25,7 +25,7 @@ module.exports = {
           ["material-ui", "material-ui-ie10"],
           ["@components", "./src/components"],
           ["@api", "./src/api"],
-          ["@types", "./src/types"],
+          ["@type", "./src/types"],
         ],
         extensions: [".ts", ".js", ".jsx", ".json"],
       },

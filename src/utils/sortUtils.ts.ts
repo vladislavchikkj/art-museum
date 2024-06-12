@@ -9,3 +9,7 @@ export const sortResults = (option: string, data: Artwork[]): Artwork[] => {
   }
   return sortedData;
 };
+
+export const add = (a: any, b: any) => {
+  return a + b;
+};
