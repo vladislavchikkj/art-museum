@@ -1,6 +1,6 @@
 import React from "react";
-import SearchForm from "../components/sections/SearchForm";
 import OtherWorks from "../components/sections/OtherWorks";
+import SearchForm from "../components/sections/SearchForm/SearchForm";
 import Topics from "../components/sections/Topics";
 
 const Home: React.FC = () => {

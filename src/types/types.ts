@@ -10,6 +10,7 @@ export interface Artwork {
   credit_line?: string;
   department_title?: string;
   is_public_domain: boolean;
+  date: number;
 }
 
 export interface ArtContextProps {

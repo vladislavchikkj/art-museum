@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 const Spinner: React.FC = () => {
   return (
     <SpinerWrapper>
-      <StyledSpinner />;
+      <StyledSpinner />
     </SpinerWrapper>
   );
 };
