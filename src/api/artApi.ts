@@ -15,7 +15,7 @@ export const fetchArtworks = async (page: number, query = "") => {
     }
     const data = await response.json();
     return data;
-  } catch (error: any) {
-    throw new Error(error.message || "Error fetching artworks");
+  } catch (error) {
+    throw new Error((error as Error).message || "Error fetching artworks");
   }
 };
