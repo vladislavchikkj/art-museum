@@ -1,7 +1,7 @@
+import { Artwork } from "@type/types.ts";
 import React, { ChangeEvent, useState } from "react";
 import * as yup from "yup";
 import { searchArtworks } from "../../../api/searchArtworks";
-import { Artwork } from "../../../types";
 import { sortResults } from "../../../utils/sortUtils.ts";
 import { searchSchema } from "../../../utils/validationSchema";
 import SmallCard from "../../ui/SmallCard/SmallCard.tsx";

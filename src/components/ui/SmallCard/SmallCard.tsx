@@ -1,5 +1,5 @@
+import { SmallCardProps } from "@type/types";
 import React from "react";
-import { SmallCardProps } from "../../../types";
 import BookmarkButton from "../BookmarkButton";
 import {
   Author,

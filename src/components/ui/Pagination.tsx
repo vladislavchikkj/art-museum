@@ -1,7 +1,7 @@
+import { PaginationProps } from "@type/types";
 import React from "react";
 import styled from "styled-components";
 import { INITIAL_PAGE_INDEX, MAX_VISIBLE_PAGES } from "../../constants";
-import { PaginationProps } from "../../types";
 
 const PaginationWrapper = styled.div`
   display: flex;

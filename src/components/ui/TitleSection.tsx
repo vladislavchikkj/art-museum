@@ -1,6 +1,6 @@
+import { TitleSectionProps } from "@type/types";
 import React from "react";
 import styled from "styled-components";
-import { TitleSectionProps } from "../../types";
 
 const Header = styled.div`
   text-align: center;

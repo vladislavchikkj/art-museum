@@ -32,8 +32,8 @@ const StyledSpinner = styled.div`
 
 const Spinner: React.FC = () => {
   return (
-    <SpinerWrapper>
-      <StyledSpinner />
+    <SpinerWrapper data-testid="spinner-wrapper">
+      <StyledSpinner data-testid="spinner" />
     </SpinerWrapper>
   );
 };

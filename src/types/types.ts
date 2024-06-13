@@ -34,7 +34,7 @@ export interface SmallCardProps {
   title: string;
   author: string;
   status: boolean;
-  imageId: string;
+  imageId: string | null;
   onRemove?: (id: number) => void;
 }
 
