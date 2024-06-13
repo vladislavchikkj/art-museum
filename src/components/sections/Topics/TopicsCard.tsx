@@ -1,5 +1,9 @@
 import { Artwork } from "@type/types";
 import React from "react";
+<<<<<<< HEAD
+=======
+import { Artwork } from "@type/types";
+>>>>>>> 6e810a3c617516aa747afd87d59e75fa112dd50e
 import BookmarkButton from "../../ui/BookmarkButton";
 import {
   Card,
