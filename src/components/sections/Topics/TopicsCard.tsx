@@ -1,5 +1,5 @@
 import React from "react";
-import { Artwork } from "../../../types";
+import { Artwork } from "@type/types";
 import BookmarkButton from "../../ui/BookmarkButton";
 import {
   Card,
