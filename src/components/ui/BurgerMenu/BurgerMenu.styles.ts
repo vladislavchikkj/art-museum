@@ -5,7 +5,7 @@ export const MenuButton = styled.button`
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: ${({ theme }) => theme.colors.headerText};
   font-size: 24px;
   cursor: pointer;
 
@@ -17,10 +17,10 @@ export const MenuButton = styled.button`
 export const BurgerIcon = styled.div`
   width: 25px;
   height: 2px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.headerText};
   position: relative;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: ${({ theme }) => theme.spacing.small};
   transition: 0.5s;
 
   &::before,
@@ -28,7 +28,7 @@ export const BurgerIcon = styled.div`
     content: "";
     width: 25px;
     height: 2px;
-    background-color: white;
+    background-color: ${({ theme }) => theme.colors.headerText};
     position: absolute;
     transition: 0.5s;
   }
@@ -49,7 +49,7 @@ export const SideMenu = styled.div<{ isOpen: boolean }>`
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: ${({ theme }) => theme.colors.headerGradientStart};
   overflow-x: hidden;
   transition: 0.3s;
   padding-top: 60px;
@@ -59,7 +59,7 @@ export const SideMenuContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1rem;
+  padding: ${({ theme }) => theme.spacing.medium};
 `;
 
 export const CloseButton = styled.span`
@@ -67,17 +67,17 @@ export const CloseButton = styled.span`
   top: 20px;
   right: 25px;
   font-size: 36px;
-  color: white;
+  color: ${({ theme }) => theme.colors.headerText};
   cursor: pointer;
 `;
 
 export const FavoritesLink = styled(Link)`
   display: flex;
   align-items: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.headerText};
   text-decoration: none;
   gap: 0.5em;
-  padding: 1rem 0;
+  padding: ${({ theme }) => theme.spacing.medium} 0;
 
   &:hover {
     text-decoration: underline;
@@ -87,5 +87,5 @@ export const FavoritesLink = styled(Link)`
 export const IconBookmark = styled.img`
   width: 24px;
   height: 24px;
-  color: #e0a449;
+  color: ${({ theme }) => theme.colors.bookmarkIcon};
 `;

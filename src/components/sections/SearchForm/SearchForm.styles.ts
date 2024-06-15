@@ -4,29 +4,29 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: ${({ theme }) => theme.spacing.large};
 `;
 
 export const Heading = styled.h1`
   font-size: 36px;
   font-weight: bold;
   text-align: center;
-  color: #333;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const Highlight = styled.span`
-  color: #ff7a00;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const SearchBox = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  background-color: #f5f5f5;
-  border-radius: 5px;
-  padding: 10px 20px;
+  margin-top: ${({ theme }) => theme.spacing.medium};
+  background-color: ${({ theme }) => theme.colors.background};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
   width: 60%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) => theme.boxShadow};
   box-sizing: border-box;
 
   @media (max-width: 650px) {
@@ -49,19 +49,19 @@ export const SearchIcon = styled.img`
 `;
 
 export const ErrorMessage = styled.p`
-  color: red;
-  margin-top: 10px;
+  color: ${({ theme }) => theme.colors.error};
+  margin-top: ${({ theme }) => theme.spacing.small};
 `;
 
 export const SortBox = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  background-color: #f5f5f5;
-  border-radius: 5px;
-  padding: 10px 20px;
+  margin-top: ${({ theme }) => theme.spacing.medium};
+  background-color: ${({ theme }) => theme.colors.background};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
   width: 60%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) => theme.boxShadow};
   box-sizing: border-box;
 
   @media (max-width: 650px) {
@@ -71,7 +71,7 @@ export const SortBox = styled.div`
 
 export const SortLabel = styled.label`
   font-size: 14px;
-  margin-right: 10px;
+  margin-right: ${({ theme }) => theme.spacing.small};
 `;
 
 export const Select = styled.select`
@@ -83,7 +83,7 @@ export const Select = styled.select`
 `;
 
 export const Results = styled.div`
-  margin-top: 40px;
+  margin-top: ${({ theme }) => theme.spacing.large};
   display: grid;
   width: 80%;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));

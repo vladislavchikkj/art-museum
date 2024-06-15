@@ -2,22 +2,22 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const FooterDiv = styled.footer`
-  background: white;
+  background: ${({ theme }) => theme.colors.footerBackground};
   margin-top: auto;
 `;
 
 export const FooterWrapper = styled.div`
-  padding: 1rem 0 1rem 0;
+  padding: ${({ theme }) => theme.spacing.footerPadding} 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.footerLink};
 `;
 
 export const LogoWrapper = styled(Link)`
   display: flex;
   align-items: end;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing.small};
   text-decoration: none;
 `;
 
@@ -32,16 +32,16 @@ export const IconLogo = styled.div`
 export const Title = styled.h1`
   font-size: 1rem;
   margin: 0;
-  color: black;
+  color: ${({ theme }) => theme.colors.footerText};
   span {
-    color: #f0a500;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const ModsenLogo = styled(Link)`
   display: flex;
   align-items: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.footerLink};
   width: 164px;
   height: 59px;
   text-decoration: none;
@@ -51,5 +51,6 @@ export const ModsenLogo = styled(Link)`
 
   &:hover {
     text-decoration: underline;
+    color: ${({ theme }) => theme.colors.footerLinkHover};
   }
 `;

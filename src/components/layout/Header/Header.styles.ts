@@ -2,22 +2,26 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HeaderDiv = styled.header`
-  background: linear-gradient(to right, #333, #444);
+  background: linear-gradient(
+    to right,
+    ${({ theme }) => theme.colors.text},
+    ${({ theme }) => theme.colors.headerGradientEnd}
+  );
   position: relative;
 `;
 
 export const HeaderWrapper = styled.div`
-  padding: 1rem 0;
+  padding: ${({ theme }) => theme.spacing.footerPadding} 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.headerText};
 `;
 
 export const LogoWrapper = styled(Link)`
   display: flex;
   align-items: end;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing.small};
   text-decoration: none;
 `;
 
@@ -32,16 +36,16 @@ export const IconLogo = styled.div`
 export const Title = styled.h1`
   font-size: 1rem;
   margin: 0;
-  color: white;
+  color: ${({ theme }) => theme.colors.headerText};
   span {
-    color: #f0a500;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const LinkWrapper = styled.div`
   display: flex;
   align-items: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.headerText};
   text-decoration: none;
   gap: 1em;
 
@@ -53,7 +57,7 @@ export const LinkWrapper = styled.div`
 export const FavoritesLink = styled(Link)`
   display: flex;
   align-items: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.headerText};
   text-decoration: none;
   gap: 0.5em;
 
@@ -65,5 +69,5 @@ export const FavoritesLink = styled(Link)`
 export const IconBookmark = styled.img`
   width: 24px;
   height: 24px;
-  color: #e0a449;
+  color: ${({ theme }) => theme.colors.bookmarkIcon};
 `;

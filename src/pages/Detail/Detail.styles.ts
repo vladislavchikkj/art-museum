@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  gap: 2rem;
-  padding: 2rem 0 2rem 0;
+  gap: ${({ theme }) => theme.spacing.medium};
+  padding: ${({ theme }) => theme.spacing.medium} 0;
 
   @media (max-width: 820px) {
     flex-direction: column;
@@ -15,29 +15,32 @@ export const Wrapper = styled.div`
 
 export const ImagePlaceholder = styled.div`
   position: relative;
-  background: #fafafa;
+  background: ${({ theme }) => theme.colors.imagePlaceholder};
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
+  color: ${({ theme }) => theme.colors.imagePlaceholderText};
   font-size: 18px;
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   overflow: hidden;
 `;
+
 export const AddToFav = styled.div`
   position: absolute;
-  right: 1rem;
-  top: 1rem;
+  right: ${({ theme }) => theme.spacing.medium};
+  top: ${({ theme }) => theme.spacing.medium};
 `;
+
 export const Image = styled.img`
   align-self: start;
   width: 100%;
   max-height: 600px;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;
+
 export const Mock = styled.div`
   display: flex;
   align-items: center;
@@ -45,8 +48,8 @@ export const Mock = styled.div`
   align-self: start;
   width: 100%;
   min-height: 600px;
-  border-radius: 10px;
-  background: #e0e0e033;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  background: ${({ theme }) => theme.colors.imagePlaceholder};
 `;
 
 export const Content = styled.div`
@@ -61,14 +64,14 @@ export const Content = styled.div`
 
 export const Title = styled.h1`
   font-size: 24px;
-  color: #333;
+  color: ${({ theme }) => theme.colors.text};
   margin: 0;
 `;
 
 export const Author = styled.p`
-  padding-top: 20px;
+  padding-top: ${({ theme }) => theme.spacing.medium};
   font-size: 18px;
-  color: #f39c12;
+  color: ${({ theme }) => theme.colors.primary};
   margin: 5px 0;
   font-weight: 500;
 `;
@@ -76,9 +79,10 @@ export const Author = styled.p`
 export const Date = styled.p`
   font-size: 16px;
   font-weight: bold;
-  color: #666;
+  color: ${({ theme }) => theme.colors.cardStatus};
   margin: 5px 0;
 `;
+
 export const Overview = styled.div`
   display: flex;
   flex-direction: column;
@@ -87,7 +91,7 @@ export const Overview = styled.div`
 
 export const SectionTitle = styled.h2`
   font-size: 20px;
-  color: #333;
+  color: ${({ theme }) => theme.colors.text};
   margin: 20px 0 10px;
 `;
 
@@ -96,12 +100,12 @@ export const InfoList = styled.ul`
   padding: 0;
   margin: 0;
   font-size: 14px;
-  color: #666;
+  color: ${({ theme }) => theme.colors.cardStatus};
 `;
 
 export const InfoItem = styled.li`
   margin-bottom: 5px;
   strong {
-    color: #f39c12;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;

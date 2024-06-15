@@ -4,7 +4,7 @@ export const Heading = styled.h1`
   font-size: 36px;
   font-weight: bold;
   text-align: center;
-  color: #333;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const Bookmark = styled.img`
@@ -17,13 +17,13 @@ export const Highlight = styled.span`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  color: #ff7a00;
-  padding-bottom: 50px;
+  color: ${({ theme }) => theme.colors.primary};
+  padding-bottom: ${({ theme }) => theme.spacing.large};
 `;
 
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 20px;
+  gap: ${({ theme }) => theme.spacing.medium};
   padding-bottom: 4rem;
 `;

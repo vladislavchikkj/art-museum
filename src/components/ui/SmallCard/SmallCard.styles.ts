@@ -3,21 +3,21 @@ import styled from "styled-components";
 
 export const Card = styled(Link)`
   display: flex;
-  background-color: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  padding: 10px;
+  background-color: ${({ theme }) => theme.colors.cardBackground};
+  border: 1px solid ${({ theme }) => theme.colors.imagePlaceholder};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  padding: ${({ theme }) => theme.spacing.small};
   align-items: center;
   text-decoration: none;
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const ImagePlaceholder = styled.div`
   width: 70px;
   height: 70px;
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  margin-right: 10px;
+  background-color: ${({ theme }) => theme.colors.imagePlaceholder};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  margin-right: ${({ theme }) => theme.spacing.small};
 `;
 
 export const Info = styled.div`
@@ -36,20 +36,20 @@ export const Title = styled.p`
 export const Author = styled.p`
   width: 80%;
   font-size: 12px;
-  color: #f39c12;
+  color: ${({ theme }) => theme.colors.cardAuthor};
   margin: 0;
 `;
 
 export const Status = styled.p`
   font-size: 12px;
-  color: #666;
+  color: ${({ theme }) => theme.colors.cardStatus};
   margin: 0;
-  padding-top: 10px;
+  padding-top: ${({ theme }) => theme.spacing.small};
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;
