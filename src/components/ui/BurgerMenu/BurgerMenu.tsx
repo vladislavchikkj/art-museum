@@ -29,11 +29,14 @@ const BurgerMenu: React.FC = () => {
   useEffect(() => {
     if (isMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden";
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "auto";
     }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "auto";
     };
   }, [isMenuOpen]);
 
