@@ -1,11 +1,11 @@
+import { searchArtworks } from "@api/searchArtworks.ts";
+import SmallCard from "@components/ui/SmallCard/SmallCard.tsx";
+import Spinner from "@components/ui/Spinner/Spinner.tsx";
 import { Artwork } from "@type/types.ts";
+import { sortResults } from "@utils/sortUtils.ts";
+import { searchSchema } from "@utils/validationSchema.ts";
 import React, { ChangeEvent, useState } from "react";
 import * as yup from "yup";
-import { searchArtworks } from "../../../api/searchArtworks";
-import { sortResults } from "../../../utils/sortUtils.ts";
-import { searchSchema } from "../../../utils/validationSchema";
-import SmallCard from "../../ui/SmallCard/SmallCard.tsx";
-import Spinner from "../../ui/Spinner";
 import {
   ErrorMessage,
   Heading,

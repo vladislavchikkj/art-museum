@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import BookmarkButton from "../BookmarkButton";
+import BookmarkButton from "../BookmarkButton/BookmarkButton";
 
 describe("BookmarkButton", () => {
   beforeEach(() => {

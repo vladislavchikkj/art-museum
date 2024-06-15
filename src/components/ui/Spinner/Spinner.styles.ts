@@ -1,7 +1,6 @@
-import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const spin = keyframes`
+export const spin = keyframes`
   0% {
     transform: rotate(0deg);
   }
@@ -10,7 +9,7 @@ const spin = keyframes`
   }
 `;
 
-const SpinerWrapper = styled.div`
+export const SpinerWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -18,7 +17,7 @@ const SpinerWrapper = styled.div`
   align-items: center;
   padding: 1rem;
 `;
-const StyledSpinner = styled.div`
+export const StyledSpinner = styled.div`
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-left-color: #333;
   border-radius: 50%;
@@ -29,13 +28,3 @@ const StyledSpinner = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-const Spinner: React.FC = () => {
-  return (
-    <SpinerWrapper data-testid="spinner-wrapper">
-      <StyledSpinner data-testid="spinner" />
-    </SpinerWrapper>
-  );
-};
-
-export default Spinner;

@@ -1,6 +1,6 @@
 import { SmallCardProps } from "@type/types";
 import React from "react";
-import BookmarkButton from "../BookmarkButton";
+import BookmarkButton from "../BookmarkButton/BookmarkButton";
 import {
   Author,
   Card,

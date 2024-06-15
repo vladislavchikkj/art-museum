@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { PaginationProps } from "@type/types";
-import Pagination from "../Pagination";
+import Pagination from "../Pagination/Pagination";
 
 describe("Pagination component", () => {
   const defaultProps: PaginationProps = {

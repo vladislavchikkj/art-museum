@@ -1,32 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
-import styled from "styled-components";
-import { BOOKMARKS_LOCAL_KEY } from "../../constants";
+import { BookmarkIcon, Circle } from "./BookmarkButton.styles";
+import { BOOKMARKS_LOCAL_KEY } from "@constants/constants";
 
 interface BookmarkButtonProps {
   id: number;
   onRemove?: (id: number) => void;
 }
-
-const Circle = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: #ebebeb;
-
-  &:hover {
-    background-color: #fbd7b2;
-  }
-`;
-
-const BookmarkIcon = styled.img`
-  width: 1.3rem;
-  height: 1.3rem;
-  cursor: pointer;
-`;
 
 const BookmarkButton: React.FC<BookmarkButtonProps> = ({ id, onRemove }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);

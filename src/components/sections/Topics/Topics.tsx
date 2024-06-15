@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import { ITEMS_PER_PAGE } from "../../../constants";
 import ArtContext from "../../../context/ArtContext";
-import Pagination from "../../ui/Pagination";
-import Spinner from "../../ui/Spinner";
-import TitleSection from "../../ui/TitleSection";
 import { Gallery, Wrapper } from "./Topics.styles";
 import TopicsCard from "./TopicsCard";
+import Pagination from "@components/ui/Pagination/Pagination";
+import Spinner from "@components/ui/Spinner/Spinner";
+import TitleSection from "@components/ui/TitleSection/TitleSection";
+import { ITEMS_PER_PAGE } from "@constants/constants";
 
 const Topics: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);

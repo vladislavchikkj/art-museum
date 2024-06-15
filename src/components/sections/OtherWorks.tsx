@@ -1,20 +1,9 @@
+import SmallCard from "@components/ui/SmallCard/SmallCard";
+import Spinner from "@components/ui/Spinner/Spinner";
+import TitleSection from "@components/ui/TitleSection/TitleSection";
 import React, { useContext } from "react";
-import styled from "styled-components";
 import ArtContext from "../../context/ArtContext";
-import SmallCard from "../ui/SmallCard/SmallCard";
-import Spinner from "../ui/Spinner";
-import TitleSection from "../ui/TitleSection";
-
-const Wrapper = styled.div`
-  padding: 20px 0 100px 0;
-  text-align: center;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 20px;
-`;
+import { Grid, Wrapper } from "./OtherWorks.styles";
 
 const OtherWorks: React.FC = () => {
   const { artworks, loading, error } = useContext(ArtContext);

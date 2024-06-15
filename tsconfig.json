@@ -19,7 +19,13 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@api/*": ["src/api/*"],
-      "@type/*": ["src/types/*"]
+      "@type/*": ["src/types/*"],
+      "@pages/*": ["src/pages/*"],
+      "@constants/*": ["src/constants/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"],
+      "@ui/*": ["src/components/ui/*"]
     }
   },
   "include": ["src"],

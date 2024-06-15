@@ -1,6 +1,6 @@
+import BurgerMenu from "@components/ui/BurgerMenu/BurgerMenu";
 import React from "react";
 import { useLocation } from "react-router-dom";
-import BurgerMenu from "../../ui/BurgerMenu/BurgerMenu";
 import Container from "../Container";
 import {
   FavoritesLink,
