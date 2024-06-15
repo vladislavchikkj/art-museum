@@ -1,5 +1,5 @@
-import TitleSection from "@components/ui/titleSection/titleSection";
-import React, { Component, ReactNode } from "react";
+import TitleSection from '@components/ui/titleSection/titleSection';
+import React, { Component, ReactNode } from 'react';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -20,14 +20,12 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error("Uncaught error:", error, errorInfo);
+    console.error('Uncaught error:', error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      return (
-        <TitleSection subtitle={"Error:"} title={"Something went wrong."} />
-      );
+      return <TitleSection subtitle={'Error:'} title={'Something went wrong.'} />;
     }
 
     return this.props.children;

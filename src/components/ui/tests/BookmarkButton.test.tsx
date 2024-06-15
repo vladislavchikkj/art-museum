@@ -1,27 +1,23 @@
-import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import BookmarkButton from "../bookmarkButton/bookmarkButton";
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import BookmarkButton from '../bookmarkButton/bookmarkButton';
 
-describe("BookmarkButton", () => {
+describe('BookmarkButton', () => {
   beforeEach(() => {
     localStorage.clear();
   });
 
-  test("renders the BookmarkButton", () => {
+  test('renders the BookmarkButton', () => {
     const { getByAltText } = render(<BookmarkButton id={1} />);
-    expect(getByAltText("Bookmark")).toBeInTheDocument();
+    expect(getByAltText('Bookmark')).toBeInTheDocument();
   });
 
-  test("toggles bookmark state on click", () => {
+  test('toggles bookmark state on click', () => {
     const { getByAltText } = render(<BookmarkButton id={1} />);
-    const bookmarkIcon = getByAltText("Bookmark");
-
-    // Initially not bookmarked
-    expect(bookmarkIcon).toHaveAttribute("src", "/bookmark.svg");
-
-    // Click to remove bookmark
+    const bookmarkIcon = getByAltText('Bookmark');
+    expect(bookmarkIcon).toHaveAttribute('src', '/bookmark.svg');
     userEvent.click(bookmarkIcon);
-    expect(bookmarkIcon).toHaveAttribute("src", "/bookmark.svg");
+    expect(bookmarkIcon).toHaveAttribute('src', '/bookmark.svg');
   });
 });

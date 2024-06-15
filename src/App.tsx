@@ -1,9 +1,9 @@
-import Layout from "@components/layout/layout";
-import Detail from "@pages/detail/detail";
-import Favorites from "@pages/favorites/favorites";
-import Home from "@pages/home";
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import Layout from '@components/layout/layout';
+import Detail from '@pages/detail/detail';
+import Favorites from '@pages/favorites/favorites';
+import Home from '@pages/home';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 const App: React.FC = () => {
   return (

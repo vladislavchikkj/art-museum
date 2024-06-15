@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   BurgerIcon,
   CloseButton,
@@ -9,7 +9,7 @@ import {
   Overlay,
   SideMenu,
   SideMenuContent,
-} from "./burgerMenu.styles";
+} from './burgerMenu.styles';
 
 const BurgerMenu: React.FC = () => {
   const location = useLocation();
@@ -28,15 +28,15 @@ const BurgerMenu: React.FC = () => {
 
   useEffect(() => {
     if (isMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "hidden";
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "auto";
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'auto';
     }
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "auto";
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'auto';
     };
   }, [isMenuOpen]);
 
@@ -49,7 +49,7 @@ const BurgerMenu: React.FC = () => {
       <SideMenu isOpen={isMenuOpen} ref={menuRef}>
         <SideMenuContent>
           <CloseButton onClick={toggleMenu}>&times;</CloseButton>
-          {location.pathname !== "/" && (
+          {location.pathname !== '/' && (
             <FavoritesLink to="/" onClick={toggleMenu}>
               <IconBookmark src="/home.png" alt="home" />
               <span>Home</span>

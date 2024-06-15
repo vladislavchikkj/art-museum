@@ -1,15 +1,8 @@
-import Spinner from "@components/ui/spinner/spinner";
-import { API_URL_DETAIL, IMAGE_URL } from "@constants/constants";
-import { Artwork } from "@type/types";
-import React, {
-  Suspense,
-  lazy,
-  memo,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
-import { useParams } from "react-router-dom";
+import Spinner from '@components/ui/spinner/spinner';
+import { API_URL_DETAIL, IMAGE_URL } from '@constants/constants';
+import { Artwork } from '@type/types';
+import React, { Suspense, lazy, memo, useEffect, useMemo, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   AddToFav,
   Author,
@@ -23,21 +16,19 @@ import {
   SectionTitle,
   Title,
   Wrapper,
-} from "./detail.styles";
+} from './detail.styles';
 
-const BookmarkButton = lazy(
-  () => import("@components/ui/bookmarkButton/bookmarkButton")
-);
+const BookmarkButton = lazy(() => import('@components/ui/bookmarkButton/bookmarkButton'));
 
 const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [artwork, setArtwork] = useState<Artwork | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string>('');
 
   useEffect(() => {
     if (!id) {
-      setError("Artwork ID is not provided");
+      setError('Artwork ID is not provided');
       setLoading(false);
       return;
     }
@@ -48,7 +39,7 @@ const Detail: React.FC = () => {
         const data = await response.json();
         setArtwork(data.data);
       } catch (err) {
-        setError("Failed to fetch artwork details");
+        setError('Failed to fetch artwork details');
       } finally {
         setLoading(false);
       }
@@ -99,9 +90,7 @@ const Detail: React.FC = () => {
               <InfoItem>
                 <strong>Repository:</strong> {artwork.department_title}
               </InfoItem>
-              <InfoItem>
-                {artwork.is_public_domain ? <b>Public</b> : <b>Private</b>}
-              </InfoItem>
+              <InfoItem>{artwork.is_public_domain ? <b>Public</b> : <b>Private</b>}</InfoItem>
             </InfoList>
           </Overview>
         </Content>

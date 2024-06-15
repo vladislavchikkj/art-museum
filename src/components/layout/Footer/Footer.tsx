@@ -1,13 +1,6 @@
-import React from "react";
-import Container from "../container";
-import {
-  FooterDiv,
-  FooterWrapper,
-  IconLogo,
-  LogoWrapper,
-  ModsenLogo,
-  Title,
-} from "./footer.styles";
+import React from 'react';
+import Container from '../container';
+import { FooterDiv, FooterWrapper, IconLogo, LogoWrapper, ModsenLogo, Title } from './footer.styles';
 
 const Footer: React.FC = () => {
   return (

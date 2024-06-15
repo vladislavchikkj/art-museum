@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const MenuButton = styled.button`
   display: none;
@@ -25,7 +25,7 @@ export const BurgerIcon = styled.div`
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     width: 25px;
     height: 2px;
     background-color: ${({ theme }) => theme.colors.headerText};
@@ -44,7 +44,7 @@ export const BurgerIcon = styled.div`
 
 export const SideMenu = styled.div<{ isOpen: boolean }>`
   height: 100%;
-  width: ${(props) => (props.isOpen ? "250px" : "0")};
+  width: ${(props) => (props.isOpen ? '250px' : '0')};
   position: fixed;
   z-index: 2;
   top: 0;

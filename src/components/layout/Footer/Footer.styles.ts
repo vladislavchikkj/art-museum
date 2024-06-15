@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const FooterDiv = styled.footer`
   background: ${({ theme }) => theme.colors.footerBackground};

@@ -1,13 +1,13 @@
-import { searchArtworks } from "@api/searchArtworks.ts";
-import SmallCard from "@components/ui/smallCard/smallCard.tsx";
-import Spinner from "@components/ui/spinner/spinner.tsx";
-import { sortOptions } from "@constants/constants.ts";
-import { useDebounce } from "@hooks/useDebounce.ts";
-import { Artwork } from "@type/types.ts";
-import { sortResults } from "@utils/sortUtils.ts";
-import { searchSchema } from "@utils/validationSchema.ts";
-import React, { ChangeEvent, useState } from "react";
-import * as yup from "yup";
+import { searchArtworks } from '@api/searchArtworks.ts';
+import SmallCard from '@components/ui/smallCard/smallCard.tsx';
+import Spinner from '@components/ui/spinner/spinner.tsx';
+import { sortOptions } from '@constants/constants.ts';
+import { useDebounce } from '@hooks/useDebounce.ts';
+import { Artwork } from '@type/types.ts';
+import { sortResults } from '@utils/sortUtils.ts';
+import { searchSchema } from '@utils/validationSchema.ts';
+import React, { ChangeEvent, useState } from 'react';
+import * as yup from 'yup';
 import {
   ErrorMessage,
   Heading,
@@ -20,13 +20,13 @@ import {
   SortBox,
   SortLabel,
   Wrapper,
-} from "./searchForm.styles.ts";
+} from './searchForm.styles.ts';
 
 const SearchForm: React.FC = () => {
-  const [query, setQuery] = useState<string>("");
+  const [query, setQuery] = useState<string>('');
   const [results, setResults] = useState<Artwork[]>([]);
-  const [error, setError] = useState<string>("");
-  const [sortOption, setSortOption] = useState<string>("");
+  const [error, setError] = useState<string>('');
+  const [sortOption, setSortOption] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
   const debouncedQuery = useDebounce(query, 500);
@@ -41,15 +41,15 @@ const SearchForm: React.FC = () => {
   };
 
   const handleSearch = async () => {
-    if (debouncedQuery.trim() === "") {
-      setError("Query cannot be empty.");
+    if (debouncedQuery.trim() === '') {
+      setError('Query cannot be empty.');
       setResults([]);
       return;
     }
 
     try {
       await searchSchema.validate(debouncedQuery);
-      setError("");
+      setError('');
       setLoading(true);
       const artworks = await searchArtworks(debouncedQuery);
       const sortedArtworks = sortResults(sortOption, artworks);
@@ -58,7 +58,7 @@ const SearchForm: React.FC = () => {
       if (validationError instanceof yup.ValidationError) {
         setError(validationError.errors[0]);
       } else {
-        setError("Unexpected error");
+        setError('Unexpected error');
       }
       setResults([]);
     } finally {
@@ -72,11 +72,7 @@ const SearchForm: React.FC = () => {
         Let's Find Some <Highlight>Art</Highlight> <br /> Here!
       </Heading>
       <SearchBox>
-        <Input
-          placeholder="Search art, artist, work..."
-          value={query}
-          onChange={handleInputChange}
-        />
+        <Input placeholder="Search art, artist, work..." value={query} onChange={handleInputChange} />
         <SearchIcon src="search.png" alt="search" onClick={handleSearch} />
       </SearchBox>
       {error && <ErrorMessage>{error}</ErrorMessage>}
@@ -95,14 +91,7 @@ const SearchForm: React.FC = () => {
       )}
       <Results>
         {results.map((artwork) => (
-          <SmallCard
-            key={artwork.id}
-            id={artwork.id}
-            title={artwork.title}
-            author={artwork.artist_display || "Unknown Artist"}
-            status={artwork.is_public_domain}
-            imageId={artwork.image_id}
-          />
+          <SmallCard key={artwork.id} artwork={artwork} />
         ))}
       </Results>
     </Wrapper>

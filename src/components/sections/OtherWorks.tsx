@@ -1,17 +1,14 @@
-import Spinner from "@components/ui/spinner/spinner";
-import TitleSection from "@components/ui/titleSection/titleSection";
-import { OTHER_WORKS_ITEMS } from "@constants/constants";
-import useArtworks from "@hooks/useArtworks";
-import React, { Suspense, lazy, memo, useMemo, useState } from "react";
-import { Grid, Wrapper } from "./otherWorks.styles";
-const SmallCard = lazy(() => import("@components/ui/smallCard/smallCard"));
+import Spinner from '@components/ui/spinner/spinner';
+import TitleSection from '@components/ui/titleSection/titleSection';
+import { OTHER_WORKS_ITEMS } from '@constants/constants';
+import useArtworks from '@hooks/useArtworks';
+import React, { Suspense, lazy, memo, useMemo, useState } from 'react';
+import { Grid, Wrapper } from './otherWorks.styles';
+const SmallCard = lazy(() => import('@components/ui/smallCard/smallCard'));
 
 const OtherWorks: React.FC = () => {
   const [currentPage] = useState(1);
-  const { artworks, loading, error } = useArtworks(
-    currentPage,
-    OTHER_WORKS_ITEMS
-  );
+  const { artworks, loading, error } = useArtworks(currentPage, OTHER_WORKS_ITEMS);
 
   const renderArtworks = useMemo(() => {
     if (loading) return <Spinner />;

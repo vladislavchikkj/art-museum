@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PaginationWrapper = styled.div`
   display: flex;
@@ -12,8 +12,7 @@ export const PageButton = styled.button`
   color: ${({ theme }) => theme.colors.text};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
-  padding: ${({ theme }) => theme.spacing.small}
-    ${({ theme }) => theme.spacing.medium};
+  padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.medium};
   margin: 0 ${({ theme }) => theme.spacing.small};
   cursor: pointer;
 

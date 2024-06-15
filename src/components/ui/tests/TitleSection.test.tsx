@@ -1,25 +1,25 @@
-import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
-import { TitleSectionProps } from "@type/types";
-import TitleSection from "../titleSection/titleSection";
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { TitleSectionProps } from '@type/types';
+import TitleSection from '../titleSection/titleSection';
 
-describe("TitleSection component", () => {
+describe('TitleSection component', () => {
   const defaultProps: TitleSectionProps = {
-    subtitle: "Test Subtitle",
-    title: "Test Title",
+    subtitle: 'Test Subtitle',
+    title: 'Test Title',
   };
 
-  test("renders the subtitle and title correctly", () => {
+  test('renders the subtitle and title correctly', () => {
     render(<TitleSection {...defaultProps} />);
 
-    const subtitleElement = screen.getByText("Test Subtitle");
+    const subtitleElement = screen.getByText('Test Subtitle');
     expect(subtitleElement).toBeInTheDocument();
-    expect(subtitleElement).toHaveStyle("color: #e0a449");
-    expect(subtitleElement).toHaveStyle("font-size: 1rem");
+    expect(subtitleElement).toHaveStyle('color: #e0a449');
+    expect(subtitleElement).toHaveStyle('font-size: 1rem');
 
-    const titleElement = screen.getByText("Test Title");
+    const titleElement = screen.getByText('Test Title');
     expect(titleElement).toBeInTheDocument();
-    expect(titleElement).toHaveStyle("font-size: 32px");
-    expect(titleElement).toHaveStyle("color: #333");
+    expect(titleElement).toHaveStyle('font-size: 32px');
+    expect(titleElement).toHaveStyle('color: #333');
   });
 });

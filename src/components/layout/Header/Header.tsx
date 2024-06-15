@@ -1,7 +1,7 @@
-import BurgerMenu from "@components/ui/burgerMenu/burgerMenu";
-import React from "react";
-import { useLocation } from "react-router-dom";
-import Container from "../container";
+import BurgerMenu from '@components/ui/burgerMenu/burgerMenu';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Container from '../container';
 import {
   FavoritesLink,
   HeaderDiv,
@@ -11,7 +11,7 @@ import {
   LinkWrapper,
   LogoWrapper,
   Title,
-} from "./header.styles";
+} from './header.styles';
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
           </LogoWrapper>
           <BurgerMenu />
           <LinkWrapper>
-            {location.pathname !== "/" && (
+            {location.pathname !== '/' && (
               <FavoritesLink to="/">
                 <IconBookmark src="/home.png" alt="home" />
                 <span>Home</span>
