@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import ErrorBoundary from "../shared/ErrorBoundary";
-import Container from "./Container";
-import Footer from "./Footer/Footer";
-import Header from "./Header/Header";
-import { ContentWrapper, PageWrapper } from "./Layout.styles";
-import GlobalStyles from "@styles/GlobalStyles";
+import ErrorBoundary from "../shared/errorBoundary";
+import Container from "./container";
+import Footer from "./footer/footer";
+import Header from "./header/header";
+import GlobalStyles from "@styles/globalStyles";
+import { PageWrapper, ContentWrapper } from "./layout.styles";
 
 const Layout: React.FC = () => {
   return (

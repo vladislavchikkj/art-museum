@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { TitleSectionProps } from "@type/types";
-import TitleSection from "../TitleSection/TitleSection";
+import TitleSection from "../titleSection/titleSection";
 
 describe("TitleSection component", () => {
   const defaultProps: TitleSectionProps = {

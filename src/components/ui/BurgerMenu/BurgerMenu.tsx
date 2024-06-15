@@ -8,7 +8,7 @@ import {
   MenuButton,
   SideMenu,
   SideMenuContent,
-} from "./BurgerMenu.styles";
+} from "./burgerMenu.styles";
 
 const BurgerMenu: React.FC = () => {
   const location = useLocation();

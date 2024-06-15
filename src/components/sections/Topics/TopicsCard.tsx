@@ -1,6 +1,6 @@
 import { Artwork } from "@type/types";
 import React from "react";
-import BookmarkButton from "../../ui/BookmarkButton/BookmarkButton";
+import BookmarkButton from "../../ui/bookmarkButton/bookmarkButton";
 import {
   Card,
   CardAuthor,
@@ -10,7 +10,7 @@ import {
   CardTitle,
   Image,
   ImagePlaceholder,
-} from "./Topics.styles";
+} from "./topics.styles";
 
 interface TopicsCardProps {
   artwork: Artwork;

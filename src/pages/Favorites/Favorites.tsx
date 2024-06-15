@@ -1,10 +1,10 @@
 import { fetchFavoritesArtworks } from "@api/favoritesApi";
-import SmallCard from "@components/ui/SmallCard/SmallCard";
-import Spinner from "@components/ui/Spinner/Spinner";
-import TitleSection from "@components/ui/TitleSection/TitleSection";
+import SmallCard from "@components/ui/smallCard/smallCard";
+import Spinner from "@components/ui/spinner/spinner";
+import TitleSection from "@components/ui/titleSection/titleSection";
 import { Artwork } from "@type/types";
 import React, { useCallback, useEffect, useState } from "react";
-import { Bookmark, Grid, Heading, Highlight } from "./Favorites.styles";
+import { Bookmark, Grid, Heading, Highlight } from "./favorites.styles";
 
 const Favorites: React.FC = () => {
   const [artworks, setArtworks] = useState<Artwork[]>([]);

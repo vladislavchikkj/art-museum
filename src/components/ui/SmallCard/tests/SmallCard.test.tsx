@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import { SmallCardProps } from "@type/types";
 import { BrowserRouter as Router } from "react-router-dom";
-import SmallCard from "../SmallCard";
+import SmallCard from "../smallCard";
 
 const mockProps: SmallCardProps = {
   id: 1,

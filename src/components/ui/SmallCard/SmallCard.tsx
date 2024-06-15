@@ -1,6 +1,6 @@
 import { SmallCardProps } from "@type/types";
 import React from "react";
-import BookmarkButton from "../BookmarkButton/BookmarkButton";
+import BookmarkButton from "../bookmarkButton/bookmarkButton";
 import {
   Author,
   Card,
@@ -9,7 +9,7 @@ import {
   Info,
   Status,
   Title,
-} from "./SmallCard.styles";
+} from "./smallCard.styles";
 
 const SmallCard: React.FC<SmallCardProps> = ({
   id,

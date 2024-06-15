@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../Container";
+import Container from "../container";
 import {
   FooterDiv,
   FooterWrapper,
@@ -7,7 +7,7 @@ import {
   LogoWrapper,
   ModsenLogo,
   Title,
-} from "./Footer.styles";
+} from "./footer.styles";
 
 const Footer: React.FC = () => {
   return (

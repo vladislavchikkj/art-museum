@@ -1,10 +1,10 @@
-import SmallCard from "@components/ui/SmallCard/SmallCard";
-import Spinner from "@components/ui/Spinner/Spinner";
-import TitleSection from "@components/ui/TitleSection/TitleSection";
+import SmallCard from "@components/ui/smallCard/smallCard";
+import Spinner from "@components/ui/spinner/spinner";
+import TitleSection from "@components/ui/titleSection/titleSection";
+import { OTHER_WORKS_ITEMS } from "@constants/constants";
 import useArtworks from "@hooks/useArtworks";
 import React, { useState } from "react";
-import { Grid, Wrapper } from "./OtherWorks.styles";
-import { OTHER_WORKS_ITEMS } from "@constants/constants";
+import { Grid, Wrapper } from "./otherWorks.styles";
 
 const OtherWorks: React.FC = () => {
   const [currentPage] = useState(1);

@@ -1,7 +1,7 @@
-import BurgerMenu from "@components/ui/BurgerMenu/BurgerMenu";
+import BurgerMenu from "@components/ui/burgerMenu/burgerMenu";
 import React from "react";
 import { useLocation } from "react-router-dom";
-import Container from "../Container";
+import Container from "../container";
 import {
   FavoritesLink,
   HeaderDiv,
@@ -11,7 +11,7 @@ import {
   LinkWrapper,
   LogoWrapper,
   Title,
-} from "./Header.styles";
+} from "./header.styles";
 
 const Header: React.FC = () => {
   const location = useLocation();

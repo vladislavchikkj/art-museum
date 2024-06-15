@@ -1,10 +1,10 @@
-import Pagination from "@components/ui/Pagination/Pagination";
-import Spinner from "@components/ui/Spinner/Spinner";
-import TitleSection from "@components/ui/TitleSection/TitleSection";
-import React, { useState } from "react";
-import { Gallery, Wrapper } from "./Topics.styles";
-import TopicsCard from "./TopicsCard";
+import Pagination from "@components/ui/pagination/pagination";
+import Spinner from "@components/ui/spinner/spinner";
+import TitleSection from "@components/ui/titleSection/titleSection";
 import useArtworks from "@hooks/useArtworks";
+import React, { useState } from "react";
+import { Gallery, Wrapper } from "./topics.styles";
+import TopicsCard from "./topicsCard";
 
 const Topics: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);

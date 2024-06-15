@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { BookmarkIcon, Circle } from "./BookmarkButton.styles";
+import { BookmarkIcon, Circle } from "./bookmarkButton.styles";
 import { BOOKMARKS_LOCAL_KEY } from "@constants/constants";
 
 interface BookmarkButtonProps {

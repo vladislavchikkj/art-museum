@@ -1,5 +1,5 @@
-import BookmarkButton from "@components/ui/BookmarkButton/BookmarkButton";
-import Spinner from "@components/ui/Spinner/Spinner";
+import BookmarkButton from "@components/ui/bookmarkButton/bookmarkButton";
+import Spinner from "@components/ui/spinner/spinner";
 import { Artwork } from "@type/types";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -16,7 +16,7 @@ import {
   SectionTitle,
   Title,
   Wrapper,
-} from "./Detail.styles";
+} from "./detail.styles";
 
 const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
