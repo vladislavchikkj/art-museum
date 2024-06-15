@@ -1,3 +1,4 @@
+import TitleSection from "@components/ui/titleSection/titleSection";
 import React, { Component, ReactNode } from "react";
 
 interface ErrorBoundaryProps {
@@ -24,7 +25,9 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return (
+        <TitleSection subtitle={"Error:"} title={"Something went wrong."} />
+      );
     }
 
     return this.props.children;

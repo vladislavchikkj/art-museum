@@ -11,16 +11,10 @@ import {
   Title,
 } from "./smallCard.styles";
 
-const SmallCard: React.FC<SmallCardProps> = ({
-  id,
-  title,
-  author,
-  status,
-  imageId,
-  onRemove,
-}) => {
-  const imageUrl = imageId
-    ? `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
+const SmallCard: React.FC<SmallCardProps> = ({ artwork, onRemove }) => {
+  const { id, title, artist_display, is_public_domain, image_id } = artwork;
+  const imageUrl = image_id
+    ? `https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`
     : null;
 
   return (
@@ -30,9 +24,13 @@ const SmallCard: React.FC<SmallCardProps> = ({
       </ImagePlaceholder>
       <Info>
         <Title>{title}</Title>
-        <Author>{author}</Author>
+        <Author>{artist_display}</Author>
         <Status>
-          {status ? <strong>Public</strong> : <strong>Private</strong>}
+          {is_public_domain ? (
+            <strong>Public</strong>
+          ) : (
+            <strong>Private</strong>
+          )}
         </Status>
       </Info>
       <BookmarkButton id={id} onRemove={onRemove} />

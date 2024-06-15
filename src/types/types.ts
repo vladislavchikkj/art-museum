@@ -30,11 +30,7 @@ export interface PaginationProps {
 }
 
 export interface SmallCardProps {
-  id: number;
-  title: string;
-  author: string;
-  status: boolean;
-  imageId: string | null;
+  artwork: Artwork;
   onRemove?: (id: number) => void;
 }
 

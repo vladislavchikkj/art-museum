@@ -1,10 +1,18 @@
 import { fetchFavoritesArtworks } from "@api/favoritesApi";
-import SmallCard from "@components/ui/smallCard/smallCard";
 import Spinner from "@components/ui/spinner/spinner";
 import TitleSection from "@components/ui/titleSection/titleSection";
 import { Artwork } from "@type/types";
-import React, { useCallback, useEffect, useState } from "react";
+import React, {
+  lazy,
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { Bookmark, Grid, Heading, Highlight } from "./favorites.styles";
+
+const SmallCard = lazy(() => import("@components/ui/smallCard/smallCard"));
 
 const Favorites: React.FC = () => {
   const [artworks, setArtworks] = useState<Artwork[]>([]);
@@ -39,6 +47,17 @@ const Favorites: React.FC = () => {
     localStorage.setItem("bookmarks", JSON.stringify(updatedBookmarks));
   }, []);
 
+  const titleSection = useMemo(() => {
+    return artworks.length === 0 ? (
+      <TitleSection
+        subtitle={"Saved by you"}
+        title={"You have no favorite artworks yet."}
+      />
+    ) : (
+      <TitleSection subtitle={"Saved by you"} title={"Your favorites list"} />
+    );
+  }, [artworks.length]);
+
   if (loading) {
     return <Spinner />;
   }
@@ -55,28 +74,14 @@ const Favorites: React.FC = () => {
           <Bookmark src="bookmark.svg" alt="bookmark" />
           <div>Favorites</div>
         </Highlight>
-        {artworks.length === 0 ? (
-          <TitleSection
-            subtitle={"Saved by you"}
-            title={"You have no favorite artworks yet."}
-          />
-        ) : (
-          <TitleSection
-            subtitle={"Saved by you"}
-            title={"Your favorites list"}
-          />
-        )}
+        {titleSection}
       </Heading>
 
       <Grid>
         {artworks.map((artwork) => (
           <SmallCard
-            id={artwork.id}
             key={artwork.id}
-            title={artwork.title}
-            author={artwork.artist_display}
-            status={artwork.is_public_domain}
-            imageId={artwork.image_id}
+            artwork={artwork}
             onRemove={handleRemove}
           />
         ))}
@@ -85,4 +90,4 @@ const Favorites: React.FC = () => {
   );
 };
 
-export default Favorites;
+export default memo(Favorites);
