@@ -1,6 +1,7 @@
 import { searchArtworks } from "@api/searchArtworks.ts";
 import SmallCard from "@components/ui/SmallCard/SmallCard.tsx";
 import Spinner from "@components/ui/Spinner/Spinner.tsx";
+import { useDebounce } from "@hooks/useDebounce.ts";
 import { Artwork } from "@type/types.ts";
 import { sortResults } from "@utils/sortUtils.ts";
 import { searchSchema } from "@utils/validationSchema.ts";
@@ -19,7 +20,7 @@ import {
   SortLabel,
   Wrapper,
 } from "./SearchForm.styles.ts";
-import { useDebounce } from "@hooks/useDebounce.ts";
+import { sortOptions } from "@constants/constants.ts";
 
 const SearchForm: React.FC = () => {
   const [query, setQuery] = useState<string>("");
@@ -84,9 +85,11 @@ const SearchForm: React.FC = () => {
         <SortBox>
           <SortLabel>Sort by:</SortLabel>
           <Select value={sortOption} onChange={handleSortChange}>
-            <option value="">None</option>
-            <option value="date">Date</option>
-            <option value="title">Title</option>
+            {sortOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </Select>
         </SortBox>
       )}
