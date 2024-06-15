@@ -13,6 +13,7 @@ export const Gallery = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   width: 100%;
+  min-height: 514px;
 `;
 
 export const Card = styled(Link)`

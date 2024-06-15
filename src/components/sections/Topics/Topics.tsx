@@ -1,29 +1,20 @@
-import React, { useContext, useState } from "react";
-import ArtContext from "../../../context/ArtContext";
-import { Gallery, Wrapper } from "./Topics.styles";
-import TopicsCard from "./TopicsCard";
 import Pagination from "@components/ui/Pagination/Pagination";
 import Spinner from "@components/ui/Spinner/Spinner";
 import TitleSection from "@components/ui/TitleSection/TitleSection";
-import { ITEMS_PER_PAGE } from "@constants/constants";
+import React, { useState } from "react";
+import { Gallery, Wrapper } from "./Topics.styles";
+import TopicsCard from "./TopicsCard";
+import useArtworks from "@hooks/useArtworks";
 
 const Topics: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const { artworks, totalItems, loading, error } = useArtworks(currentPage, 3);
 
-  const { artworks, loading, error } = useContext(ArtContext);
-
-  const totalItems = artworks.length;
-  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(totalItems / 3);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const selectedArtworks = artworks.slice(
-    startIndex,
-    startIndex + ITEMS_PER_PAGE
-  );
 
   return (
     <Wrapper>
@@ -34,7 +25,7 @@ const Topics: React.FC = () => {
         ) : error ? (
           <div>{error}</div>
         ) : (
-          selectedArtworks.map((artwork) => (
+          artworks.map((artwork) => (
             <TopicsCard key={artwork.id} artwork={artwork} />
           ))
         )}

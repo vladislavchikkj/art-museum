@@ -1,7 +1,7 @@
+import { INITIAL_PAGE_INDEX, MAX_VISIBLE_PAGES } from "@constants/constants";
 import { PaginationProps } from "@type/types";
 import React from "react";
 import { PageButton, PaginationWrapper } from "./Pagination.styles";
-import { MAX_VISIBLE_PAGES, INITIAL_PAGE_INDEX } from "@constants/constants";
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
