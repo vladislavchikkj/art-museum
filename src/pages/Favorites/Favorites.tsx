@@ -55,11 +55,19 @@ const Favorites: React.FC = () => {
           <Bookmark src="bookmark.svg" alt="bookmark" />
           <div>Favorites</div>
         </Highlight>
-        <TitleSection
-          subtitle={"Topics for you"}
-          title={"Our special gallery"}
-        />
+        {artworks.length === 0 ? (
+          <TitleSection
+            subtitle={"Saved by you"}
+            title={"You have no favorite artworks yet."}
+          />
+        ) : (
+          <TitleSection
+            subtitle={"Saved by you"}
+            title={"Your favorites list"}
+          />
+        )}
       </Heading>
+
       <Grid>
         {artworks.map((artwork) => (
           <SmallCard
