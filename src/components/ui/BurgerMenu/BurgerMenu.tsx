@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
   BurgerIcon,
@@ -6,6 +6,7 @@ import {
   FavoritesLink,
   IconBookmark,
   MenuButton,
+  Overlay,
   SideMenu,
   SideMenuContent,
 } from "./burgerMenu.styles";
@@ -16,7 +17,7 @@ const BurgerMenu: React.FC = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -41,6 +42,7 @@ const BurgerMenu: React.FC = () => {
       <MenuButton onClick={toggleMenu}>
         <BurgerIcon />
       </MenuButton>
+      {isMenuOpen && <Overlay onClick={toggleMenu} />}
       <SideMenu isOpen={isMenuOpen} ref={menuRef}>
         <SideMenuContent>
           <CloseButton onClick={toggleMenu}>&times;</CloseButton>

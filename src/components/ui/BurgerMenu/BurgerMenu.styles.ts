@@ -46,10 +46,10 @@ export const SideMenu = styled.div<{ isOpen: boolean }>`
   height: 100%;
   width: ${(props) => (props.isOpen ? "250px" : "0")};
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
-  background-color: ${({ theme }) => theme.colors.headerGradientStart};
+  background-color: ${({ theme }) => theme.colors.backgroundDark};
   overflow-x: hidden;
   transition: 0.3s;
   padding-top: 60px;
@@ -88,4 +88,14 @@ export const IconBookmark = styled.img`
   width: 24px;
   height: 24px;
   color: ${({ theme }) => theme.colors.bookmarkIcon};
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 `;

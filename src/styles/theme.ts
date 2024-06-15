@@ -3,6 +3,7 @@ export const theme = {
     primary: "#ff7a00",
     text: "#333",
     background: "#f5f5f5",
+    backgroundDark: "#252525",
     footerBackground: "white",
     footerText: "black",
     footerLink: "white",
