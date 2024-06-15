@@ -1,24 +1,22 @@
 import { fetchFavoritesArtworks } from "@api/favoritesApi";
 import SmallCard from "@components/ui/SmallCard/SmallCard";
-import { Artwork } from "@type/types";
-import React, { useEffect, useState } from "react";
-import { Bookmark, Grid, Heading, Highlight } from "./Favorites.styles";
 import Spinner from "@components/ui/Spinner/Spinner";
 import TitleSection from "@components/ui/TitleSection/TitleSection";
+import { Artwork } from "@type/types";
+import React, { useCallback, useEffect, useState } from "react";
+import { Bookmark, Grid, Heading, Highlight } from "./Favorites.styles";
 
 const Favorites: React.FC = () => {
-  const [, setFavoriteIds] = useState<number[]>([]);
   const [artworks, setArtworks] = useState<Artwork[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
-    setFavoriteIds(bookmarks);
     getArtworks(bookmarks);
   }, []);
 
-  const getArtworks = async (ids: number[]) => {
+  const getArtworks = useCallback(async (ids: number[]) => {
     try {
       const artworks = await fetchFavoritesArtworks(ids);
       setArtworks(artworks);
@@ -28,16 +26,18 @@ const Favorites: React.FC = () => {
       setError(errorMessage);
       setLoading(false);
     }
-  };
+  }, []);
 
-  const handleRemove = (id: number) => {
-    setFavoriteIds((prevIds) =>
-      prevIds.filter((bookmarkId) => bookmarkId !== id)
-    );
+  const handleRemove = useCallback((id: number) => {
     setArtworks((prevArtworks) =>
       prevArtworks.filter((artwork) => artwork.id !== id)
     );
-  };
+
+    const updatedBookmarks = JSON.parse(
+      localStorage.getItem("bookmarks") || "[]"
+    ).filter((bookmarkId: number) => bookmarkId !== id);
+    localStorage.setItem("bookmarks", JSON.stringify(updatedBookmarks));
+  }, []);
 
   if (loading) {
     return <Spinner />;
