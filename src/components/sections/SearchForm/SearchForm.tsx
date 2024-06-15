@@ -19,6 +19,7 @@ import {
   SortLabel,
   Wrapper,
 } from "./SearchForm.styles.ts";
+import { useDebounce } from "@hooks/useDebounce.ts";
 
 const SearchForm: React.FC = () => {
   const [query, setQuery] = useState<string>("");
@@ -26,6 +27,8 @@ const SearchForm: React.FC = () => {
   const [error, setError] = useState<string>("");
   const [sortOption, setSortOption] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+
+  const debouncedQuery = useDebounce(query, 500);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -37,17 +40,17 @@ const SearchForm: React.FC = () => {
   };
 
   const handleSearch = async () => {
-    if (query.trim() === "") {
+    if (debouncedQuery.trim() === "") {
       setError("Query cannot be empty.");
       setResults([]);
       return;
     }
 
     try {
-      await searchSchema.validate(query);
+      await searchSchema.validate(debouncedQuery);
       setError("");
       setLoading(true);
-      const artworks = await searchArtworks(query);
+      const artworks = await searchArtworks(debouncedQuery);
       const sortedArtworks = sortResults(sortOption, artworks);
       setResults(sortedArtworks);
     } catch (validationError) {
