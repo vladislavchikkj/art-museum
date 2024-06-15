@@ -19,3 +19,7 @@ export const IMAGE_URL = (image_id: string) =>
 
 export const API_URL_DETAIL = (id: string) =>
   `https://api.artic.edu/api/v1/artworks/${id}`;
+
+export const API_BASE_URL = "https://api.artic.edu/api/v1";
+export const ARTWORK_ENDPOINT = "/artworks/";
+export const SEARCH_ENDPOINT = "/artworks/search";

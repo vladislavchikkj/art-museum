@@ -11,7 +11,7 @@ export const Circle = styled.div`
   background-color: ${({ theme }) => theme.colors.imagePlaceholder};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.imagePlaceholderText};
   }
 `;
 

@@ -1,3 +1,4 @@
+import { API_BASE_URL, ARTWORK_ENDPOINT } from "@constants/constants";
 import { Artwork } from "@type/types";
 
 export const fetchFavoritesArtworks = async (
@@ -5,12 +6,17 @@ export const fetchFavoritesArtworks = async (
 ): Promise<Artwork[]> => {
   try {
     const promises = ids.map((id) =>
-      fetch(`https://api.artic.edu/api/v1/artworks/${id}`).then((res) =>
-        res.json()
-      )
+      fetch(`${API_BASE_URL}${ARTWORK_ENDPOINT}${id}`)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
+        .then((data) => data.data)
     );
     const results = await Promise.all(promises);
-    return results.map((result) => result.data);
+    return results;
   } catch (error) {
     throw new Error("Failed to fetch artworks");
   }
