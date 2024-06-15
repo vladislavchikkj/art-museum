@@ -10,15 +10,14 @@ import {
   Status,
   Title,
 } from "./smallCard.styles";
+import { IMAGE_URL, DETAIL_PATH } from "@constants/constants";
 
 const SmallCard: React.FC<SmallCardProps> = ({ artwork, onRemove }) => {
   const { id, title, artist_display, is_public_domain, image_id } = artwork;
-  const imageUrl = image_id
-    ? `https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`
-    : null;
+  const imageUrl = image_id ? IMAGE_URL(image_id) : null;
 
   return (
-    <Card to={`/detail/${id}`}>
+    <Card to={`${DETAIL_PATH}/${id}`}>
       <ImagePlaceholder>
         {imageUrl ? <Image src={imageUrl} alt={"img_card"} /> : "No Image"}
       </ImagePlaceholder>

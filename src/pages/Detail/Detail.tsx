@@ -1,4 +1,5 @@
 import Spinner from "@components/ui/spinner/spinner";
+import { API_URL_DETAIL, IMAGE_URL } from "@constants/constants";
 import { Artwork } from "@type/types";
 import React, {
   Suspense,
@@ -23,6 +24,7 @@ import {
   Title,
   Wrapper,
 } from "./detail.styles";
+
 const BookmarkButton = lazy(
   () => import("@components/ui/bookmarkButton/bookmarkButton")
 );
@@ -34,11 +36,15 @@ const Detail: React.FC = () => {
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
+    if (!id) {
+      setError("Artwork ID is not provided");
+      setLoading(false);
+      return;
+    }
+
     const fetchArtwork = async () => {
       try {
-        const response = await fetch(
-          `https://api.artic.edu/api/v1/artworks/${id}`
-        );
+        const response = await fetch(API_URL_DETAIL(id));
         const data = await response.json();
         setArtwork(data.data);
       } catch (err) {
@@ -51,6 +57,7 @@ const Detail: React.FC = () => {
   }, [id]);
 
   const renderContent = useMemo(() => {
+    if (!id) return <div>Artwork ID is not provided</div>; // Вывод сообщения, если id не определен
     if (loading) return <Spinner />;
     if (error) return <div>{error}</div>;
     if (!artwork) return <Spinner />;
@@ -59,10 +66,7 @@ const Detail: React.FC = () => {
       <Wrapper>
         <ImagePlaceholder>
           {artwork.image_id ? (
-            <Image
-              src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
-              alt={artwork.title}
-            />
+            <Image src={IMAGE_URL(artwork.image_id)} alt={artwork.title} />
           ) : (
             <Mock>
               <div>No Image</div>
@@ -103,7 +107,7 @@ const Detail: React.FC = () => {
         </Content>
       </Wrapper>
     );
-  }, [loading, error, artwork]);
+  }, [loading, error, artwork, id]);
 
   return renderContent;
 };

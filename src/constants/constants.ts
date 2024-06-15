@@ -10,3 +10,12 @@ export const sortOptions = [
   { value: "date", label: "Date" },
   { value: "title", label: "Title" },
 ];
+
+export const BASE_URL = "https://www.artic.edu/iiif/2";
+export const DETAIL_PATH = "/detail";
+
+export const IMAGE_URL = (image_id: string) =>
+  `${BASE_URL}/${image_id}/full/843,/0/default.jpg`;
+
+export const API_URL_DETAIL = (id: string) =>
+  `https://api.artic.edu/api/v1/artworks/${id}`;

@@ -5,7 +5,7 @@ export interface Artwork {
   title: string;
   artist_display: string;
   artist_title: string;
-  image_id: string;
+  image_id?: string | null;
   dimensions?: string;
   credit_line?: string;
   department_title?: string;

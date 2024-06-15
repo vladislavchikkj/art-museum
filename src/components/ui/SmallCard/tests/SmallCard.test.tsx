@@ -1,56 +1,65 @@
 import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
-import { SmallCardProps } from "@type/types";
+import { fireEvent, render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import SmallCard from "../smallCard";
+import { Artwork } from "@type/types";
 
-const mockProps: SmallCardProps = {
+const mockArtwork: Artwork = {
   id: 1,
-  title: "Sample Title",
-  author: "Sample Author",
-  status: true,
-  imageId: "sampleImageId",
-  onRemove: jest.fn(),
+  title: "Artwork Title",
+  artist_display: "Artist Name",
+  artist_title: "Artist Title",
+  image_id: "12345",
+  dimensions: "100x100 cm",
+  credit_line: "Credit Line",
+  department_title: "Department",
+  is_public_domain: true,
+  date: 2023,
 };
 
-describe("SmallCard", () => {
-  test("renders the SmallCard with image", () => {
-    const { getByAltText, getByText } = render(
+describe("SmallCard component", () => {
+  it("renders artwork details correctly", () => {
+    const { getByText, getByAltText } = render(
       <Router>
-        <SmallCard {...mockProps} />
+        <SmallCard artwork={mockArtwork} />
       </Router>
     );
 
-    // Check if the image is rendered
-    const imageUrl = `https://www.artic.edu/iiif/2/${mockProps.imageId}/full/843,/0/default.jpg`;
-    expect(getByAltText("img_card")).toHaveAttribute("src", imageUrl);
+    const titleElement = getByText("Artwork Title");
+    const artistElement = getByText("Artist Name");
+    const imageElement = getByAltText("img_card");
+    const statusElement = getByText("Public");
 
-    // Check if title, author, and status are rendered
-    expect(getByText("Sample Title")).toBeInTheDocument();
-    expect(getByText("Sample Author")).toBeInTheDocument();
-    expect(getByText("Public")).toBeInTheDocument();
+    expect(titleElement).toBeInTheDocument();
+    expect(artistElement).toBeInTheDocument();
+    expect(imageElement).toBeInTheDocument();
+    expect(statusElement).toBeInTheDocument();
   });
 
-  test("renders the SmallCard without image", () => {
-    const propsWithoutImage: SmallCardProps = { ...mockProps, imageId: null };
+  it('renders "No Image" if image_id is null', () => {
+    const artworkWithoutImage = { ...mockArtwork, image_id: null };
+
     const { getByText } = render(
       <Router>
-        <SmallCard {...propsWithoutImage} />
+        <SmallCard artwork={artworkWithoutImage} />
       </Router>
     );
 
-    // Check if "No Image" is rendered
-    expect(getByText("No Image")).toBeInTheDocument();
+    const noImageText = getByText("No Image");
+    expect(noImageText).toBeInTheDocument();
   });
 
-  test("renders the BookmarkButton component", () => {
-    const { getByAltText } = render(
+  it("calls onRemove handler when Remove button is clicked", () => {
+    const mockOnRemove = jest.fn();
+    const { getByText } = render(
       <Router>
-        <SmallCard {...mockProps} />
+        <SmallCard artwork={mockArtwork} onRemove={mockOnRemove} />
       </Router>
     );
 
-    // Check if BookmarkButton is rendered
-    expect(getByAltText("Bookmark")).toBeInTheDocument();
+    const removeButton = getByText("Remove");
+    fireEvent.click(removeButton);
+
+    expect(mockOnRemove).toHaveBeenCalledWith(1); // Ensure onRemove is called with the correct id
   });
 });

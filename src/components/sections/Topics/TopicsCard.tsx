@@ -1,6 +1,5 @@
 import { Artwork } from "@type/types";
-import React from "react";
-import BookmarkButton from "../../ui/bookmarkButton/bookmarkButton";
+import React, { lazy, memo, useCallback, useMemo } from "react";
 import {
   Card,
   CardAuthor,
@@ -11,23 +10,30 @@ import {
   Image,
   ImagePlaceholder,
 } from "./topics.styles";
+import { IMAGE_URL, DETAIL_PATH } from "@constants/constants";
+
+const BookmarkButton = lazy(
+  () => import("../../ui/bookmarkButton/bookmarkButton")
+);
 
 interface TopicsCardProps {
   artwork: Artwork;
 }
 
 const TopicsCard: React.FC<TopicsCardProps> = ({ artwork }) => {
+  const imageUrl = useMemo(() => {
+    return artwork.image_id ? IMAGE_URL(artwork.image_id) : null;
+  }, [artwork.image_id]);
+
+  const bookmarkButtonMemo = useCallback(
+    () => <BookmarkButton id={artwork.id} />,
+    [artwork.id]
+  );
+
   return (
-    <Card to={`/detail/${artwork.id}`}>
+    <Card to={`${DETAIL_PATH}/${artwork.id}`}>
       <ImagePlaceholder>
-        {artwork.image_id ? (
-          <Image
-            src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
-            alt={artwork.title}
-          />
-        ) : (
-          "No Image"
-        )}
+        {imageUrl ? <Image src={imageUrl} alt={artwork.title} /> : "No Image"}
       </ImagePlaceholder>
       <CardContent>
         <CardTitle>{artwork.title}</CardTitle>
@@ -40,11 +46,11 @@ const TopicsCard: React.FC<TopicsCardProps> = ({ artwork }) => {
               <strong>Private</strong>
             )}
           </CardStatus>
-          <BookmarkButton id={artwork.id} />
+          {bookmarkButtonMemo()}
         </CardFooter>
       </CardContent>
     </Card>
   );
 };
 
-export default TopicsCard;
+export default memo(TopicsCard);
