@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
   BurgerIcon,
@@ -13,17 +13,35 @@ import {
 const BurgerMenu: React.FC = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
       <MenuButton onClick={toggleMenu}>
         <BurgerIcon />
       </MenuButton>
-      <SideMenu isOpen={isMenuOpen}>
+      <SideMenu isOpen={isMenuOpen} ref={menuRef}>
         <SideMenuContent>
           <CloseButton onClick={toggleMenu}>&times;</CloseButton>
           {location.pathname !== "/" && (

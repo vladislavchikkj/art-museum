@@ -3,4 +3,5 @@ export const API_URL =
 export const INITIAL_PAGE_INDEX = 1;
 export const ITEMS_PER_PAGE = 3;
 export const MAX_VISIBLE_PAGES = 3;
+export const OTHER_WORKS_ITEMS = 9;
 export const BOOKMARKS_LOCAL_KEY = "bookmarks";

@@ -1,12 +1,17 @@
 import SmallCard from "@components/ui/SmallCard/SmallCard";
 import Spinner from "@components/ui/Spinner/Spinner";
 import TitleSection from "@components/ui/TitleSection/TitleSection";
-import React, { useContext } from "react";
-import ArtContext from "../../context/ArtContext";
+import useArtworks from "@hooks/useArtworks";
+import React, { useState } from "react";
 import { Grid, Wrapper } from "./OtherWorks.styles";
+import { OTHER_WORKS_ITEMS } from "@constants/constants";
 
 const OtherWorks: React.FC = () => {
-  const { artworks, loading, error } = useContext(ArtContext);
+  const [currentPage] = useState(1);
+  const { artworks, loading, error } = useArtworks(
+    currentPage,
+    OTHER_WORKS_ITEMS
+  );
 
   if (loading) {
     return <Spinner />;
@@ -15,6 +20,7 @@ const OtherWorks: React.FC = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+
   return (
     <Wrapper>
       <TitleSection subtitle={"Here some more"} title={"Other works for you"} />
