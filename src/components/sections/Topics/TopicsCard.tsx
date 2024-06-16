@@ -1,5 +1,6 @@
-import { Artwork } from "@type/types";
-import React, { lazy, memo, useCallback, useMemo } from "react";
+import { DETAIL_PATH, IMAGE_URL } from '@constants/constants';
+import { Artwork } from '@type/types';
+import React, { lazy, memo, useCallback, useMemo } from 'react';
 import {
   Card,
   CardAuthor,
@@ -9,12 +10,9 @@ import {
   CardTitle,
   Image,
   ImagePlaceholder,
-} from "./topics.styles";
-import { IMAGE_URL, DETAIL_PATH } from "@constants/constants";
+} from './topics.styles';
 
-const BookmarkButton = lazy(
-  () => import("../../ui/bookmarkButton/bookmarkButton")
-);
+const BookmarkButton = lazy(() => import('../../ui/bookmarkButton/bookmarkButton'));
 
 interface TopicsCardProps {
   artwork: Artwork;
@@ -25,27 +23,16 @@ const TopicsCard: React.FC<TopicsCardProps> = ({ artwork }) => {
     return artwork.image_id ? IMAGE_URL(artwork.image_id) : null;
   }, [artwork.image_id]);
 
-  const bookmarkButtonMemo = useCallback(
-    () => <BookmarkButton id={artwork.id} />,
-    [artwork.id]
-  );
+  const bookmarkButtonMemo = useCallback(() => <BookmarkButton id={artwork.id} />, [artwork.id]);
 
   return (
     <Card to={`${DETAIL_PATH}/${artwork.id}`}>
-      <ImagePlaceholder>
-        {imageUrl ? <Image src={imageUrl} alt={artwork.title} /> : "No Image"}
-      </ImagePlaceholder>
+      <ImagePlaceholder>{imageUrl ? <Image src={imageUrl} alt={artwork.title} /> : 'No Image'}</ImagePlaceholder>
       <CardContent>
         <CardTitle>{artwork.title}</CardTitle>
         <CardAuthor>{artwork.artist_title}</CardAuthor>
         <CardFooter>
-          <CardStatus>
-            {artwork.is_public_domain ? (
-              <strong>Public</strong>
-            ) : (
-              <strong>Private</strong>
-            )}
-          </CardStatus>
+          <CardStatus>{artwork.is_public_domain ? <strong>Public</strong> : <strong>Private</strong>}</CardStatus>
           {bookmarkButtonMemo()}
         </CardFooter>
       </CardContent>

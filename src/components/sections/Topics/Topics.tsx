@@ -1,17 +1,10 @@
-import Pagination from "@components/ui/pagination/pagination";
-import Spinner from "@components/ui/spinner/spinner";
-import TitleSection from "@components/ui/titleSection/titleSection";
-import useArtworks from "@hooks/useArtworks";
-import React, {
-  Suspense,
-  lazy,
-  memo,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
-import { Gallery, Wrapper } from "./topics.styles";
-const TopicsCard = lazy(() => import("./topicsCard"));
+import Pagination from '@components/ui/pagination/pagination';
+import Spinner from '@components/ui/spinner/spinner';
+import TitleSection from '@components/ui/titleSection/titleSection';
+import useArtworks from '@hooks/useArtworks';
+import React, { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
+import { Gallery, Wrapper } from './topics.styles';
+const TopicsCard = lazy(() => import('./topicsCard'));
 
 const Topics: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,11 +30,7 @@ const Topics: React.FC = () => {
     <Wrapper>
       <TitleSection subtitle="Topics for you" title="Our special gallery" />
       <Gallery>{renderArtworks}</Gallery>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
     </Wrapper>
   );
 };
