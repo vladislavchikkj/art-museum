@@ -1,5 +1,6 @@
 import GlobalStyles from '@styles/globalStyles';
 import { theme } from '@styles/theme';
+import { BookmarkProvider } from '@utils/bookmarkContext';
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import ErrorBoundary from '../shared/errorBoundary';
@@ -12,16 +13,18 @@ const Layout: React.FC = () => {
   return (
     <ErrorBoundary>
       <ThemeProvider theme={theme}>
-        <PageWrapper>
-          <GlobalStyles />
-          <Header />
-          <ContentWrapper>
-            <Container>
-              <Outlet />
-            </Container>
-          </ContentWrapper>
-          <Footer />
-        </PageWrapper>
+        <BookmarkProvider>
+          <PageWrapper>
+            <GlobalStyles />
+            <Header />
+            <ContentWrapper>
+              <Container>
+                <Outlet />
+              </Container>
+            </ContentWrapper>
+            <Footer />
+          </PageWrapper>
+        </BookmarkProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

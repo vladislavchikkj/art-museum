@@ -38,3 +38,9 @@ export interface TitleSectionProps {
   subtitle: string;
   title: string;
 }
+
+export interface BookmarkContextProps {
+  bookmarks: Set<number>;
+  addBookmark: (id: number) => void;
+  removeBookmark: (id: number) => void;
+}

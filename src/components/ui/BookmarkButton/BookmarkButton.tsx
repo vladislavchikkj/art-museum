@@ -1,4 +1,4 @@
-import { BOOKMARKS_LOCAL_KEY } from '@constants/constants';
+import { useBookmarks } from '@utils/bookmarkContext';
 import React, { useCallback, useEffect, useState } from 'react';
 import { BookmarkIcon, Circle } from './bookmarkButton.styles';
 
@@ -8,30 +8,24 @@ interface BookmarkButtonProps {
 }
 
 const BookmarkButton: React.FC<BookmarkButtonProps> = ({ id, onRemove }) => {
+  const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   useEffect(() => {
-    const bookmarks = JSON.parse(localStorage.getItem(BOOKMARKS_LOCAL_KEY) || '[]');
-    setIsBookmarked(bookmarks.includes(id));
-  }, [id]);
+    setIsBookmarked(bookmarks.has(id));
+  }, [bookmarks, id]);
 
   const handleBookmark = useCallback(
     (e: React.MouseEvent) => {
       e.preventDefault();
-      const bookmarks = JSON.parse(localStorage.getItem(BOOKMARKS_LOCAL_KEY) || '[]');
-
       if (isBookmarked) {
-        const updatedBookmarks = bookmarks.filter((bookmarkId: number) => bookmarkId !== id);
-        localStorage.setItem(BOOKMARKS_LOCAL_KEY, JSON.stringify(updatedBookmarks));
-        setIsBookmarked(false);
+        removeBookmark(id);
         onRemove?.(id);
       } else {
-        bookmarks.push(id);
-        localStorage.setItem(BOOKMARKS_LOCAL_KEY, JSON.stringify(bookmarks));
-        setIsBookmarked(true);
+        addBookmark(id);
       }
     },
-    [id, isBookmarked, onRemove],
+    [id, isBookmarked, addBookmark, removeBookmark, onRemove],
   );
 
   return (
