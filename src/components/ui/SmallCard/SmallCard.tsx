@@ -9,7 +9,7 @@ const SmallCard: React.FC<SmallCardProps> = ({ artwork, onRemove }) => {
   const imageUrl = image_id ? IMAGE_URL(image_id) : null;
 
   return (
-    <Card to={`${DETAIL_PATH}/${id}`}>
+    <Card to={`${DETAIL_PATH}/${id}`} data-testid="favorites-link">
       <ImagePlaceholder>{imageUrl ? <Image src={imageUrl} alt={'img_card'} /> : 'No Image'}</ImagePlaceholder>
       <Info>
         <Title>{title}</Title>

@@ -50,12 +50,12 @@ const BurgerMenu: React.FC = () => {
         <SideMenuContent>
           <CloseButton onClick={toggleMenu}>&times;</CloseButton>
           {location.pathname !== '/' && (
-            <FavoritesLink to="/" onClick={toggleMenu}>
+            <FavoritesLink to="/" onClick={toggleMenu} data-testid="home-link">
               <IconBookmark src="/home.png" alt="home" />
               <span>Home</span>
             </FavoritesLink>
           )}
-          <FavoritesLink to="/favorites" onClick={toggleMenu}>
+          <FavoritesLink to="/favorites" onClick={toggleMenu} data-testid="favorites-link">
             <IconBookmark src="/bookmark-home.png" alt="bookmark" />
             <span>Your favorites</span>
           </FavoritesLink>

@@ -15,7 +15,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./",
+    "esModuleInterop": true,
+    "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
       "@api/*": ["src/api/*"],
