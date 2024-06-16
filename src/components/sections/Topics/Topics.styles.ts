@@ -1,4 +1,3 @@
-// styles.ts
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,10 +10,10 @@ export const Wrapper = styled.div`
 
 export const Gallery = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
   gap: ${({ theme }) => theme.spacing.medium};
   width: 100%;
-  min-height: 514px;
+  min-height: 32.125rem;
 `;
 
 export const Card = styled(Link)`
@@ -23,7 +22,7 @@ export const Card = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 514px;
+  height: 32.125rem;
 `;
 
 export const ImagePlaceholder = styled.div`
@@ -34,7 +33,7 @@ export const ImagePlaceholder = styled.div`
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.colors.imagePlaceholderText};
-  font-size: 18px;
+  font-size: 1.125rem;
   border-top-left-radius: ${({ theme }) => theme.borderRadius};
   border-top-right-radius: ${({ theme }) => theme.borderRadius};
   overflow: hidden;
@@ -60,7 +59,7 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h2`
-  font-size: 16px;
+  font-size: 1rem;
   color: ${({ theme }) => theme.colors.text};
 `;
 

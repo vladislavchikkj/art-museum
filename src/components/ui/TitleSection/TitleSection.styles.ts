@@ -11,7 +11,7 @@ export const Subtitle = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 32px;
+  font-size: 2rem;
   color: ${({ theme }) => theme.colors.cardTitle};
   margin: 0;
   padding-bottom: ${({ theme }) => theme.spacing.small};

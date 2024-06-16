@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Heading = styled.h1`
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: bold;
   text-align: center;
   color: ${({ theme }) => theme.colors.text};
@@ -29,7 +29,7 @@ export const SearchBox = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   box-sizing: border-box;
 
-  @media (max-width: 650px) {
+  @media (max-width: 40.625rem) {
     width: 100%;
   }
 `;
@@ -39,12 +39,12 @@ export const Input = styled.input`
   outline: none;
   background: none;
   flex-grow: 1;
-  font-size: 14px;
+  font-size: 0.875rem;
 `;
 
 export const SearchIcon = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
 `;
 
@@ -64,13 +64,13 @@ export const SortBox = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   box-sizing: border-box;
 
-  @media (max-width: 650px) {
+  @media (max-width: 40.625rem) {
     width: 100%;
   }
 `;
 
 export const SortLabel = styled.label`
-  font-size: 14px;
+  font-size: 0.875rem; // 14px converted to rem
   margin-right: ${({ theme }) => theme.spacing.small};
 `;
 
@@ -78,7 +78,7 @@ export const Select = styled.select`
   border: none;
   outline: none;
   background: none;
-  font-size: 14px;
+  font-size: 0.875rem; // 14px converted to rem
   flex-grow: 1;
 `;
 
@@ -86,6 +86,6 @@ export const Results = styled.div`
   margin-top: ${({ theme }) => theme.spacing.large};
   display: grid;
   width: 80%;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(21.25rem, 1fr)); // 340px converted to rem
+  gap: 1.25rem; // 20px converted to rem
 `;

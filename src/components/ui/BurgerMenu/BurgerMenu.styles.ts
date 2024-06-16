@@ -6,17 +6,17 @@ export const MenuButton = styled.button`
   background: none;
   border: none;
   color: ${({ theme }) => theme.colors.headerText};
-  font-size: 24px;
+  font-size: 1.5rem;
   cursor: pointer;
 
-  @media (max-width: 650px) {
+  @media (max-width: 40.625rem) {
     display: block;
   }
 `;
 
 export const BurgerIcon = styled.div`
-  width: 25px;
-  height: 2px;
+  width: 1.5625rem;
+  height: 0.125rem;
   background-color: ${({ theme }) => theme.colors.headerText};
   position: relative;
   display: inline-block;
@@ -26,25 +26,25 @@ export const BurgerIcon = styled.div`
   &::before,
   &::after {
     content: '';
-    width: 25px;
-    height: 2px;
+    width: 1.5625rem;
+    height: 0.125rem;
     background-color: ${({ theme }) => theme.colors.headerText};
     position: absolute;
     transition: 0.5s;
   }
 
   &::before {
-    top: -8px;
+    top: -0.5rem;
   }
 
   &::after {
-    bottom: -8px;
+    bottom: -0.5rem;
   }
 `;
 
 export const SideMenu = styled.div<{ isOpen: boolean }>`
   height: 100%;
-  width: ${(props) => (props.isOpen ? '250px' : '0')};
+  width: ${(props) => (props.isOpen ? '15.625rem' : '0')};
   position: fixed;
   z-index: 2;
   top: 0;
@@ -52,7 +52,7 @@ export const SideMenu = styled.div<{ isOpen: boolean }>`
   background-color: ${({ theme }) => theme.colors.backgroundDark};
   overflow-x: hidden;
   transition: 0.3s;
-  padding-top: 60px;
+  padding-top: 3.75rem;
 `;
 
 export const SideMenuContent = styled.div`
@@ -64,9 +64,9 @@ export const SideMenuContent = styled.div`
 
 export const CloseButton = styled.span`
   position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 36px;
+  top: 1.25rem;
+  right: 1.5625rem;
+  font-size: 2.25rem;
   color: ${({ theme }) => theme.colors.headerText};
   cursor: pointer;
 `;
@@ -85,8 +85,8 @@ export const FavoritesLink = styled(Link)`
 `;
 
 export const IconBookmark = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   color: ${({ theme }) => theme.colors.bookmarkIcon};
 `;
 

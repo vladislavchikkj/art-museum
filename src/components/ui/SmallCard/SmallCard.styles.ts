@@ -13,8 +13,8 @@ export const Card = styled(Link)`
 `;
 
 export const ImagePlaceholder = styled.div`
-  width: 70px;
-  height: 70px;
+  width: 4.375rem;
+  height: 4.375rem;
   background-color: ${({ theme }) => theme.colors.imagePlaceholder};
   border-radius: ${({ theme }) => theme.borderRadius};
   margin-right: ${({ theme }) => theme.spacing.small};
@@ -28,20 +28,20 @@ export const Info = styled.div`
 `;
 
 export const Title = styled.p`
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: bold;
   margin: 0;
 `;
 
 export const Author = styled.p`
   width: 80%;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: ${({ theme }) => theme.colors.cardAuthor};
   margin: 0;
 `;
 
 export const Status = styled.p`
-  font-size: 12px;
+  font-size: 0.75rem;
   color: ${({ theme }) => theme.colors.cardStatus};
   margin: 0;
   padding-top: ${({ theme }) => theme.spacing.small};

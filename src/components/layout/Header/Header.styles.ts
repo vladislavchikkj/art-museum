@@ -26,8 +26,8 @@ export const LogoWrapper = styled(Link)`
 `;
 
 export const IconLogo = styled.div`
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   background-image: url(/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -47,9 +47,9 @@ export const LinkWrapper = styled.div`
   align-items: center;
   color: ${({ theme }) => theme.colors.headerText};
   text-decoration: none;
-  gap: 1em;
+  gap: 1rem;
 
-  @media (max-width: 650px) {
+  @media (max-width: 40.625rem) {
     display: none;
   }
 `;
@@ -59,7 +59,7 @@ export const FavoritesLink = styled(Link)`
   align-items: center;
   color: ${({ theme }) => theme.colors.headerText};
   text-decoration: none;
-  gap: 0.5em;
+  gap: 0.5rem;
 
   &:hover {
     text-decoration: underline;
@@ -67,7 +67,7 @@ export const FavoritesLink = styled(Link)`
 `;
 
 export const IconBookmark = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   color: ${({ theme }) => theme.colors.bookmarkIcon};
 `;

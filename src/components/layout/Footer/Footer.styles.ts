@@ -22,8 +22,8 @@ export const LogoWrapper = styled(Link)`
 `;
 
 export const IconLogo = styled.div`
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   background-image: url(/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -42,8 +42,8 @@ export const ModsenLogo = styled(Link)`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.colors.footerLink};
-  width: 164px;
-  height: 59px;
+  width: 10.25rem;
+  height: 3.6875rem;
   text-decoration: none;
   background-image: url(logo-modsen.png);
   background-repeat: no-repeat;

@@ -22,11 +22,11 @@ export const theme = {
     code: 'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace',
   },
   spacing: {
-    small: '10px',
-    medium: '20px',
-    large: '50px',
+    small: '1rem',
+    medium: '2rem',
+    large: '5rem',
     footerPadding: '1rem',
   },
-  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-  borderRadius: '10px',
+  boxShadow: '0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1)',
+  borderRadius: '0.625rem',
 };

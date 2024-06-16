@@ -4,7 +4,7 @@ export const PaginationWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  margin: ${({ theme }) => theme.spacing.medium} 0;
+  margin: ${({ theme }) => theme.spacing.small} 0;
 `;
 
 export const PageButton = styled.button`
@@ -12,7 +12,7 @@ export const PageButton = styled.button`
   color: ${({ theme }) => theme.colors.text};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
-  padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.medium};
+  padding: 0.7rem;
   margin: 0 ${({ theme }) => theme.spacing.small};
   cursor: pointer;
 
