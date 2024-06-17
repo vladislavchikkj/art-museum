@@ -3,7 +3,7 @@ import { theme } from '@styles/theme';
 import { BookmarkProvider } from '@utils/bookmarkContext';
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import ErrorBoundary from '../shared/errorBoundary';
+import ErrorBoundary from '../shared/errorBoundary-c';
 import Footer from './Footer/footer-c';
 import Container from './container-c';
 import Header from './header/header';

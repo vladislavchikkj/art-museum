@@ -4,7 +4,7 @@ import TitleSection from '@components/ui/titleSection/titleSection';
 import useArtworks from '@hooks/useArtworks';
 import React, { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
 import { Gallery, Wrapper } from './topics-c.styles';
-const TopicsCard = lazy(() => import('./topicsCard'));
+const TopicsCard = lazy(() => import('./topicsCard-c'));
 
 const Topics: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);

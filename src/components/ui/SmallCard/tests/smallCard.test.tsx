@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../../styles/theme';
-import SmallCard from '../smallCard';
+import SmallCard from '../smallCard-c';
 import { BookmarkProvider } from '@utils/bookmarkContext';
 
 const mockData = {

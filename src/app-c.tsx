@@ -1,6 +1,6 @@
 import Layout from '@components/layout/layout';
-import Detail from '@pages/detail/detail';
-import Favorites from '@pages/favorites/favorites';
+import Detail from '@pages/Detail/detail-c';
+import Favorites from '@pages/Favorites/favorites';
 import Home from '@pages/home';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';

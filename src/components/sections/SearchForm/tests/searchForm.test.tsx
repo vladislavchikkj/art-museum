@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import SearchForm from '../searchForm';
+import SearchForm from '../searchForm-c';
 
 jest.mock('@api/searchArtworks');
 
