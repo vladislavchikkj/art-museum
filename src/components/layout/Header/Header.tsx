@@ -1,7 +1,7 @@
-import BurgerMenu from '@components/ui/burgerMenu/burgerMenu';
+import BurgerMenu from '@components/ui/BurgerMenu/burgerMenu';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Container from '../container-c';
+import Container from '../container';
 import {
   FavoritesLink,
   HeaderDiv,

@@ -2,10 +2,10 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
+import { BookmarkProvider } from '@utils/bookmarkContext';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../../styles/theme';
-import SmallCard from '../smallCard-c';
-import { BookmarkProvider } from '@utils/bookmarkContext';
+import SmallCard from '../smallCard';
 
 const mockData = {
   id: 1,

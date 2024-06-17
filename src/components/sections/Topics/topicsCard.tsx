@@ -10,9 +10,9 @@ import {
   CardTitle,
   Image,
   ImagePlaceholder,
-} from './topics-c.styles';
+} from './topics.styles';
 
-const BookmarkButton = lazy(() => import('../../ui/BookmarkButton/bookmarkButton-c'));
+const BookmarkButton = lazy(() => import('../../ui/BookmarkButton/bookmarkButton'));
 
 interface TopicsCardProps {
   artwork: Artwork;

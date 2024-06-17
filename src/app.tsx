@@ -1,5 +1,5 @@
 import Layout from '@components/layout/layout';
-import Detail from '@pages/Detail/detail-c';
+import Detail from '@pages/Detail/detail';
 import Favorites from '@pages/Favorites/favorites';
 import Home from '@pages/home';
 import React from 'react';

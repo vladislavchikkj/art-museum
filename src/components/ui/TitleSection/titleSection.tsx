@@ -1,6 +1,6 @@
 import { TitleSectionProps } from '@type/types';
 import React from 'react';
-import { Header, Subtitle, Title } from './titleSection-c.styles';
+import { Header, Subtitle, Title } from './titleSection.styles';
 
 const TitleSection: React.FC<TitleSectionProps> = ({ subtitle, title }) => {
   return (

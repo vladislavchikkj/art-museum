@@ -1,4 +1,4 @@
-import Spinner from '@components/ui/spinner/spinner';
+import Spinner from '@components/ui/Spinner/spinner';
 import { API_URL_DETAIL, IMAGE_URL } from '@constants/constants';
 import { Artwork } from '@type/types';
 import React, { Suspense, lazy, memo, useEffect, useMemo, useState } from 'react';
@@ -16,9 +16,9 @@ import {
   SectionTitle,
   Title,
   Wrapper,
-} from './detail-c.styles';
+} from './detail.styles';
 
-const BookmarkButton = lazy(() => import('@components/ui/bookmarkButton/bookmarkButton'));
+const BookmarkButton = lazy(() => import('@components/ui/BookmarkButton/bookmarkButton'));
 
 const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>();

@@ -1,10 +1,10 @@
-import Spinner from '@components/ui/spinner/spinner';
-import TitleSection from '@components/ui/titleSection/titleSection';
+import SmallCard from '@components/ui/SmallCard/smallCard';
+import Spinner from '@components/ui/Spinner/spinner';
+import TitleSection from '@components/ui/TitleSection/titleSection';
 import { OTHER_WORKS_ITEMS } from '@constants/constants';
 import useArtworks from '@hooks/useArtworks';
-import React, { Suspense, lazy, memo, useMemo, useState } from 'react';
-import { Grid, Wrapper } from './otherWorks-c.styles';
-const SmallCard = lazy(() => import('@components/ui/smallCard/smallCard'));
+import React, { Suspense, memo, useMemo, useState } from 'react';
+import { Grid, Wrapper } from './otherWorks.styles';
 
 const OtherWorks: React.FC = () => {
   const [currentPage] = useState(1);

@@ -1,6 +1,6 @@
 import { searchArtworks } from '@api/searchArtworks.ts';
-import SmallCard from '@components/ui/smallCard/smallCard.tsx';
-import Spinner from '@components/ui/spinner/spinner.tsx';
+import SmallCard from '@components/ui/SmallCard/smallCard.tsx';
+import Spinner from '@components/ui/Spinner/spinner.tsx';
 import { sortOptions } from '@constants/constants.ts';
 import { useDebounce } from '@hooks/useDebounce.ts';
 import { Artwork } from '@type/types.ts';
@@ -20,7 +20,7 @@ import {
   SortBox,
   SortLabel,
   Wrapper,
-} from './searchForm-c.styles.ts';
+} from './searchForm.styles.ts';
 
 const SearchForm: React.FC = () => {
   const [query, setQuery] = useState<string>('');

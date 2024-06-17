@@ -1,11 +1,11 @@
 import { fetchFavoritesArtworks } from '@api/favoritesApi';
-import Spinner from '@components/ui/spinner/spinner';
-import TitleSection from '@components/ui/titleSection/titleSection';
+import Spinner from '@components/ui/Spinner/spinner';
+import TitleSection from '@components/ui/TitleSection/titleSection';
 import { Artwork } from '@type/types';
 import React, { lazy, memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { Bookmark, Grid, Heading, Highlight } from './favorites-c.styles';
+import { Bookmark, Grid, Heading, Highlight } from './favorites.styles';
 
-const SmallCard = lazy(() => import('@components/ui/smallCard/smallCard'));
+const SmallCard = lazy(() => import('@components/ui/SmallCard/smallCard'));
 
 const Favorites: React.FC = () => {
   const [artworks, setArtworks] = useState<Artwork[]>([]);

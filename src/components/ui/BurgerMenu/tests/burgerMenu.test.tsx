@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import BurgerMenu from '../burgerMenu-c';
+import BurgerMenu from '../burgerMenu';
 
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../../../styles/theme';
