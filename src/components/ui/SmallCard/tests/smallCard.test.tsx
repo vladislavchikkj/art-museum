@@ -17,7 +17,7 @@ const mockData = {
 };
 
 describe('small card component', () => {
-  test('should render Your favorites link', () => {
+  test('should render card', () => {
     render(
       <ThemeProvider theme={theme}>
         <BookmarkProvider>
