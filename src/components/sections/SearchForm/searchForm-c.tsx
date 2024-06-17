@@ -20,7 +20,7 @@ import {
   SortBox,
   SortLabel,
   Wrapper,
-} from './searchForm.styles.ts';
+} from './searchForm-c.styles.ts';
 
 const SearchForm: React.FC = () => {
   const [query, setQuery] = useState<string>('');

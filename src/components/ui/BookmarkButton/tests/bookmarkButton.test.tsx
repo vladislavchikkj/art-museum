@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { useBookmarks } from '@utils/bookmarkContext';
 import { ThemeProvider } from 'styled-components';
-import BookmarkButton from '../bookmarkButton';
+import BookmarkButton from '../bookmarkButton-c';
 
 // Mock the useBookmarks hook
 jest.mock('@utils/bookmarkContext', () => ({

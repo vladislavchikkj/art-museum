@@ -3,7 +3,7 @@ import TitleSection from '@components/ui/titleSection/titleSection';
 import { OTHER_WORKS_ITEMS } from '@constants/constants';
 import useArtworks from '@hooks/useArtworks';
 import React, { Suspense, lazy, memo, useMemo, useState } from 'react';
-import { Grid, Wrapper } from './otherWorks.styles';
+import { Grid, Wrapper } from './otherWorks-c.styles';
 const SmallCard = lazy(() => import('@components/ui/smallCard/smallCard'));
 
 const OtherWorks: React.FC = () => {

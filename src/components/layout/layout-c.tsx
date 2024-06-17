@@ -4,10 +4,10 @@ import { BookmarkProvider } from '@utils/bookmarkContext';
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import ErrorBoundary from '../shared/errorBoundary';
-import Container from './container';
-import Footer from './footer/footer';
+import Footer from './Footer/footer-c';
+import Container from './container-c';
 import Header from './header/header';
-import { ContentWrapper, PageWrapper } from './layout.styles';
+import { ContentWrapper, PageWrapper } from './layout-c.styles';
 
 const Layout: React.FC = () => {
   return (

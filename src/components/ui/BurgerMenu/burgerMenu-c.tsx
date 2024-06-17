@@ -9,7 +9,7 @@ import {
   Overlay,
   SideMenu,
   SideMenuContent,
-} from './burgerMenu.styles';
+} from './burgerMenu-c.styles';
 
 const BurgerMenu: React.FC = () => {
   const location = useLocation();

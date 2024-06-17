@@ -1,6 +1,6 @@
 import { useBookmarks } from '@utils/bookmarkContext';
 import React, { useCallback, useEffect, useState } from 'react';
-import { BookmarkIcon, Circle } from './bookmarkButton.styles';
+import { BookmarkIcon, Circle } from './bookmarkButton-c.styles';
 
 interface BookmarkButtonProps {
   id: number;

@@ -1,8 +1,8 @@
 import { DETAIL_PATH, IMAGE_URL } from '@constants/constants';
 import { SmallCardProps } from '@type/types';
 import React from 'react';
-import BookmarkButton from '../bookmarkButton/bookmarkButton';
-import { Author, Card, Image, ImagePlaceholder, Info, Status, Title } from './smallCard.styles';
+import BookmarkButton from '../BookmarkButton/bookmarkButton-c';
+import { Author, Card, Image, ImagePlaceholder, Info, Status, Title } from './smallCard-c.styles';
 
 const SmallCard: React.FC<SmallCardProps> = ({ artwork, onRemove }) => {
   const { id, title, artist_display, is_public_domain, image_id } = artwork;

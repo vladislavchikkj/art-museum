@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import Footer from '../footer';
+import Footer from '../footer-c';
 
 const theme = {
   colors: {

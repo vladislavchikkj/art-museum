@@ -16,7 +16,7 @@ import {
   SectionTitle,
   Title,
   Wrapper,
-} from './detail.styles';
+} from './detail-c.styles';
 
 const BookmarkButton = lazy(() => import('@components/ui/bookmarkButton/bookmarkButton'));
 

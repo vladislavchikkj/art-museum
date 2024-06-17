@@ -3,7 +3,7 @@ import Spinner from '@components/ui/spinner/spinner';
 import TitleSection from '@components/ui/titleSection/titleSection';
 import useArtworks from '@hooks/useArtworks';
 import React, { Suspense, lazy, memo, useCallback, useMemo, useState } from 'react';
-import { Gallery, Wrapper } from './topics.styles';
+import { Gallery, Wrapper } from './topics-c.styles';
 const TopicsCard = lazy(() => import('./topicsCard'));
 
 const Topics: React.FC = () => {

@@ -3,7 +3,7 @@ import Spinner from '@components/ui/spinner/spinner';
 import TitleSection from '@components/ui/titleSection/titleSection';
 import { Artwork } from '@type/types';
 import React, { lazy, memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { Bookmark, Grid, Heading, Highlight } from './favorites.styles';
+import { Bookmark, Grid, Heading, Highlight } from './favorites-c.styles';
 
 const SmallCard = lazy(() => import('@components/ui/smallCard/smallCard'));
 
