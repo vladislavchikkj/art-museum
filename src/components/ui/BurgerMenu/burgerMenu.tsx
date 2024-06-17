@@ -46,9 +46,9 @@ const BurgerMenu: React.FC = () => {
         <BurgerIcon />
       </MenuButton>
       {isMenuOpen && <Overlay onClick={toggleMenu} />}
-      <SideMenu isOpen={isMenuOpen} ref={menuRef}>
+      <SideMenu $isOpen={isMenuOpen} ref={menuRef}>
         <SideMenuContent>
-          <CloseButton onClick={toggleMenu}>&times;</CloseButton>
+          <CloseButton onClick={toggleMenu}>×</CloseButton>
           {location.pathname !== '/' && (
             <FavoritesLink to="/" onClick={toggleMenu} data-testid="home-link">
               <IconBookmark src="/home.png" alt="home" />

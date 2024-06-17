@@ -42,9 +42,13 @@ export const BurgerIcon = styled.div`
   }
 `;
 
-export const SideMenu = styled.div<{ isOpen: boolean }>`
+interface SideMenuProps {
+  $isOpen: boolean;
+}
+
+export const SideMenu = styled.div<SideMenuProps>`
   height: 100%;
-  width: ${(props) => (props.isOpen ? '15.625rem' : '0')};
+  width: ${(props) => (props.$isOpen ? '15.625rem' : '0')};
   position: fixed;
   z-index: 2;
   top: 0;
@@ -61,7 +65,6 @@ export const SideMenuContent = styled.div`
   align-items: flex-start;
   padding: ${({ theme }) => theme.spacing.medium};
 `;
-
 export const CloseButton = styled.span`
   position: absolute;
   top: 1.25rem;

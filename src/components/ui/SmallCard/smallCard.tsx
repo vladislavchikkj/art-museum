@@ -1,12 +1,20 @@
 import { DETAIL_PATH, IMAGE_URL } from '@constants/constants';
 import { SmallCardProps } from '@type/types';
-import React from 'react';
-import BookmarkButton from '../BookmarkButton/bookmarkButton';
+import React, { lazy, memo, useCallback, useMemo } from 'react';
 import { Author, Card, Image, ImagePlaceholder, Info, Status, Title } from './smallCard.styles';
 
-const SmallCard: React.FC<SmallCardProps> = ({ artwork, onRemove }) => {
+const BookmarkButton = lazy(() => import('../BookmarkButton/bookmarkButton'));
+
+const SmallCard: React.FC<SmallCardProps> = memo(({ artwork, onRemove }) => {
   const { id, title, artist_display, is_public_domain, image_id } = artwork;
-  const imageUrl = image_id ? IMAGE_URL(image_id) : null;
+
+  const imageUrl = useMemo(() => (image_id ? IMAGE_URL(image_id) : null), [image_id]);
+
+  const handleRemove = useCallback(() => {
+    if (onRemove) {
+      onRemove(id);
+    }
+  }, [onRemove, id]);
 
   return (
     <Card to={`${DETAIL_PATH}/${id}`} data-testid="favorites-link">
@@ -16,9 +24,11 @@ const SmallCard: React.FC<SmallCardProps> = ({ artwork, onRemove }) => {
         <Author>{artist_display}</Author>
         <Status>{is_public_domain ? <strong>Public</strong> : <strong>Private</strong>}</Status>
       </Info>
-      <BookmarkButton id={id} onRemove={onRemove} />
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <BookmarkButton id={id} onRemove={handleRemove} />
+      </React.Suspense>
     </Card>
   );
-};
+});
 
 export default SmallCard;
