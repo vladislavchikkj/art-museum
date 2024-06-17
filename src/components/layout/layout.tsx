@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import ErrorBoundary from '../shared/errorBoundary';
 import Footer from './Footer/footer';
-import Header from './Header/header';
+import Header from './Header/header-c';
 import Container from './container';
 import { ContentWrapper, PageWrapper } from './layout.styles';
 

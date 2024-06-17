@@ -11,7 +11,7 @@ import {
   LinkWrapper,
   LogoWrapper,
   Title,
-} from './header.styles';
+} from './header-c.styles';
 
 const Header: React.FC = () => {
   const location = useLocation();
