@@ -92,9 +92,9 @@ const SearchForm: React.FC = () => {
         <SortBox>
           <SortLabel>Sort by:</SortLabel>
           <Select value={sortOption} onChange={handleSortChange}>
-            {sortOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
+            {sortOptions.map(({ value, label }) => (
+              <option key={value} value={value}>
+                {label}
               </option>
             ))}
           </Select>
