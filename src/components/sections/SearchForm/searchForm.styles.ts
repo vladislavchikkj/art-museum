@@ -70,7 +70,7 @@ export const SortBox = styled.div`
 `;
 
 export const SortLabel = styled.label`
-  font-size: 0.875rem; // 14px converted to rem
+  font-size: 0.875rem;
   margin-right: ${({ theme }) => theme.spacing.small};
 `;
 
@@ -78,7 +78,7 @@ export const Select = styled.select`
   border: none;
   outline: none;
   background: none;
-  font-size: 0.875rem; // 14px converted to rem
+  font-size: 0.875rem;
   flex-grow: 1;
 `;
 
@@ -86,6 +86,13 @@ export const Results = styled.div`
   margin-top: ${({ theme }) => theme.spacing.large};
   display: grid;
   width: 80%;
-  grid-template-columns: repeat(auto-fill, minmax(21.25rem, 1fr)); // 340px converted to rem
-  gap: 1.25rem; // 20px converted to rem
+  grid-template-columns: repeat(auto-fill, minmax(21.25rem, 1fr));
+  gap: 1.25rem;
+`;
+
+export const NoResultsMessage = styled.div`
+  margin-top: 20px;
+  font-size: 18px;
+  color: #777;
+  text-align: center;
 `;

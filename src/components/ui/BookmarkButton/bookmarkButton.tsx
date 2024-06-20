@@ -1,3 +1,5 @@
+import bookmarkIcon from '@assets/bookmark.svg';
+import bookmarkedIcon from '@assets/bookmarked.svg';
 import { useBookmarks } from '@utils/bookmarkContext';
 import React, { useCallback, useEffect, useState } from 'react';
 import { BookmarkIcon, Circle } from './bookmarkButton.styles';
@@ -30,7 +32,7 @@ const BookmarkButton: React.FC<BookmarkButtonProps> = ({ id, onRemove }) => {
 
   return (
     <Circle onClick={handleBookmark}>
-      <BookmarkIcon src={isBookmarked ? '/bookmarked.svg' : '/bookmark.svg'} alt="Bookmark" />
+      <BookmarkIcon src={isBookmarked ? `${bookmarkedIcon}` : `${bookmarkIcon}`} alt="Bookmark" />
     </Circle>
   );
 };

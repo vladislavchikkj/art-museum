@@ -1,4 +1,5 @@
 import { searchArtworks } from '@api/searchArtworks.ts';
+import searchIcon from '@assets/search.png';
 import SmallCard from '@components/ui/SmallCard/smallCard.tsx';
 import Spinner from '@components/ui/Spinner/spinner.tsx';
 import { sortOptions } from '@constants/constants.ts';
@@ -6,13 +7,14 @@ import { useDebounce } from '@hooks/useDebounce.ts';
 import { Artwork } from '@type/types.ts';
 import { sortResults } from '@utils/sortUtils.ts';
 import { searchSchema } from '@utils/validationSchema.ts';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import * as yup from 'yup';
 import {
   ErrorMessage,
   Heading,
   Highlight,
   Input,
+  NoResultsMessage,
   Results,
   SearchBox,
   SearchIcon,
@@ -40,18 +42,18 @@ const SearchForm: React.FC = () => {
     setResults((prevResults) => sortResults(e.target.value, prevResults));
   };
 
-  const handleSearch = async () => {
-    if (debouncedQuery.trim() === '') {
+  const handleSearch = async (searchQuery: string) => {
+    if (searchQuery.trim() === '') {
       setError('Query cannot be empty.');
       setResults([]);
       return;
     }
 
     try {
-      await searchSchema.validate(debouncedQuery);
+      await searchSchema.validate(searchQuery);
       setError('');
       setLoading(true);
-      const artworks = await searchArtworks(debouncedQuery);
+      const artworks = await searchArtworks(searchQuery);
       const sortedArtworks = sortResults(sortOption, artworks);
       setResults(sortedArtworks);
     } catch (validationError) {
@@ -66,6 +68,12 @@ const SearchForm: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (debouncedQuery) {
+      handleSearch(debouncedQuery);
+    }
+  }, [debouncedQuery]);
+
   return (
     <Wrapper>
       <Heading>
@@ -73,10 +81,13 @@ const SearchForm: React.FC = () => {
       </Heading>
       <SearchBox>
         <Input placeholder="Search art, artist, work..." value={query} onChange={handleInputChange} />
-        <SearchIcon src="search.png" alt="search" onClick={handleSearch} />
+        <SearchIcon src={searchIcon} alt="search" onClick={() => handleSearch(query)} />
       </SearchBox>
       {error && <ErrorMessage>{error}</ErrorMessage>}
       {loading && <Spinner />}
+      {!loading && results.length === 0 && !error && (
+        <NoResultsMessage>No results found for your search.</NoResultsMessage>
+      )}
       {results.length > 0 && (
         <SortBox>
           <SortLabel>Sort by:</SortLabel>

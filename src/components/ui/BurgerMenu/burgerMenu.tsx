@@ -1,3 +1,5 @@
+import bookmarkHomeIcon from '@assets/bookmark-home.png';
+import homeIcon from '@assets/home.png';
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
@@ -51,12 +53,12 @@ const BurgerMenu: React.FC = () => {
           <CloseButton onClick={toggleMenu}>×</CloseButton>
           {location.pathname !== '/' && (
             <FavoritesLink to="/" onClick={toggleMenu} data-testid="home-link">
-              <IconBookmark src="/home.png" alt="home" />
+              <IconBookmark src={homeIcon} alt="home" />
               <span>Home</span>
             </FavoritesLink>
           )}
           <FavoritesLink to="/favorites" onClick={toggleMenu} data-testid="favorites-link">
-            <IconBookmark src="/bookmark-home.png" alt="bookmark" />
+            <IconBookmark src={bookmarkHomeIcon} alt="bookmark" />
             <span>Your favorites</span>
           </FavoritesLink>
         </SideMenuContent>

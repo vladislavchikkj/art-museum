@@ -1,6 +1,7 @@
+import logoModsen from '@assets/logo-modsen.png';
+import logo from '@assets/logo.png';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
 export const FooterDiv = styled.footer`
   background: ${({ theme }) => theme.colors.footerBackground};
   margin-top: auto;
@@ -24,7 +25,7 @@ export const LogoWrapper = styled(Link)`
 export const IconLogo = styled.div`
   width: 3rem;
   height: 3rem;
-  background-image: url(/logo.png);
+  background-image: url(${logo});
   background-repeat: no-repeat;
   background-size: contain;
 `;
@@ -45,7 +46,7 @@ export const ModsenLogo = styled(Link)`
   width: 10.25rem;
   height: 3.6875rem;
   text-decoration: none;
-  background-image: url(logo-modsen.png);
+  background-image: url(${logoModsen});
   background-repeat: no-repeat;
   background-size: contain;
 

@@ -13,6 +13,9 @@ import {
   Title,
 } from './header.styles';
 
+import bookmarkHomeImage from '@assets/bookmark-home.png';
+import homeImage from '@assets/home.png';
+
 const Header: React.FC = () => {
   const location = useLocation();
   return (
@@ -29,12 +32,12 @@ const Header: React.FC = () => {
           <LinkWrapper>
             {location.pathname !== '/' && (
               <FavoritesLink to="/">
-                <IconBookmark src="/home.png" alt="home" />
+                <IconBookmark src={homeImage} alt="home" />
                 <span>Home</span>
               </FavoritesLink>
             )}
             <FavoritesLink to="/favorites">
-              <IconBookmark src="/bookmark-home.png" alt="bookmark" />
+              <IconBookmark src={bookmarkHomeImage} alt="bookmark" />
               <span>Your favorites</span>
             </FavoritesLink>
           </LinkWrapper>

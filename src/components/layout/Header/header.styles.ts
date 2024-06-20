@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import logo from '@assets/logo.png';
 
 export const HeaderDiv = styled.header`
   background: linear-gradient(
@@ -28,7 +29,7 @@ export const LogoWrapper = styled(Link)`
 export const IconLogo = styled.div`
   width: 3rem;
   height: 3rem;
-  background-image: url(/logo.png);
+  background-image: url(${logo});
   background-repeat: no-repeat;
   background-size: contain;
 `;
