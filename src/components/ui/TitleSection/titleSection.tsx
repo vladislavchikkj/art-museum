@@ -1,4 +1,4 @@
-import { TitleSectionProps } from '@type/types';
+import { TitleSectionProps } from '@utils/types/types';
 import React from 'react';
 import { Header, Subtitle, Title } from './titleSection.styles';
 

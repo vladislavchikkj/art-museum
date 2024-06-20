@@ -20,7 +20,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@api/*": ["src/api/*"],
-      "@type/*": ["src/types/*"],
+      "@type/*": ["src/utils/types/*"],
       "@pages/*": ["src/pages/*"],
       "@constants/*": ["src/constants/*"],
       "@hooks/*": ["src/hooks/*"],

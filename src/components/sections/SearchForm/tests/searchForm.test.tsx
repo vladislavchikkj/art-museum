@@ -1,6 +1,6 @@
-import { searchArtworks } from '@api/searchArtworks';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { searchArtworks } from '@utils/searchArtworks';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import SearchForm from '../searchForm';

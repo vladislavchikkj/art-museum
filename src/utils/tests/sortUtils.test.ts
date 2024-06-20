@@ -1,4 +1,4 @@
-import { Artwork } from '@type/types';
+import { Artwork } from '@utils/types/types';
 import { sortResults } from '../sortUtils';
 
 describe('sortResults', () => {

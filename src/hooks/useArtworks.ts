@@ -1,5 +1,5 @@
 import { API_URL } from '@constants/constants';
-import { Artwork } from '@type/types';
+import { Artwork } from '@utils/types/types';
 import { useEffect, useState } from 'react';
 
 const useArtworks = (currentPage: number, itemsPerPage: number) => {

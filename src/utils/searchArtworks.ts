@@ -1,5 +1,5 @@
 import { API_BASE_URL, SEARCH_ENDPOINT } from '@constants/constants';
-import { Artwork } from '@type/types';
+import { Artwork } from '@utils/types/types';
 
 export const searchArtworks = async (query: string): Promise<Artwork[]> => {
   try {

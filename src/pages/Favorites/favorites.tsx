@@ -1,7 +1,8 @@
-import { fetchFavoritesArtworks } from '@api/favoritesApi';
+import bookmarkIcon from '@assets/bookmark.svg';
 import Spinner from '@components/ui/Spinner/spinner';
 import TitleSection from '@components/ui/TitleSection/titleSection';
-import { Artwork } from '@type/types';
+import { fetchFavoritesArtworks } from '@utils/favoritesApi';
+import { Artwork } from '@utils/types/types';
 import React, { lazy, memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Bookmark, Grid, Heading, Highlight } from './favorites.styles';
 
@@ -59,7 +60,7 @@ const Favorites: React.FC = () => {
       <Heading>
         Here Are Your <br />
         <Highlight>
-          <Bookmark src="bookmark.svg" alt="bookmark" />
+          <Bookmark src={bookmarkIcon} alt="bookmark" />
           <div>Favorites</div>
         </Highlight>
         {titleSection}

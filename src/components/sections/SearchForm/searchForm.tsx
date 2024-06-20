@@ -1,11 +1,11 @@
-import { searchArtworks } from '@api/searchArtworks.ts';
 import searchIcon from '@assets/search.png';
 import SmallCard from '@components/ui/SmallCard/smallCard.tsx';
 import Spinner from '@components/ui/Spinner/spinner.tsx';
 import { sortOptions } from '@constants/constants.ts';
 import { useDebounce } from '@hooks/useDebounce.ts';
-import { Artwork } from '@type/types.ts';
+import { searchArtworks } from '@utils/searchArtworks.ts';
 import { sortResults } from '@utils/sortUtils.ts';
+import { Artwork } from '@utils/types/types.ts';
 import { searchSchema } from '@utils/validationSchema.ts';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import * as yup from 'yup';

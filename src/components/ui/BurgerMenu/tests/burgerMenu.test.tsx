@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import BurgerMenu from '../burgerMenu';
 
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../../styles/theme';
+import { theme } from '../../../../utils/theme';
 
 describe('burger menu component', () => {
   test('should render Your favorites link', () => {

@@ -1,5 +1,5 @@
 import { DETAIL_PATH, IMAGE_URL } from '@constants/constants';
-import { Artwork } from '@type/types';
+import { Artwork } from '@utils/types/types';
 import React, { lazy, memo, useCallback, useMemo } from 'react';
 import {
   Card,

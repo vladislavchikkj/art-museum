@@ -1,6 +1,6 @@
 import Spinner from '@components/ui/Spinner/spinner';
 import { API_URL_DETAIL, IMAGE_URL } from '@constants/constants';
-import { Artwork } from '@type/types';
+import { Artwork } from '@utils/types/types';
 import React, { Suspense, lazy, memo, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {

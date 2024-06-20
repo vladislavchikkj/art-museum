@@ -1,5 +1,5 @@
 import { DETAIL_PATH, IMAGE_URL } from '@constants/constants';
-import { SmallCardProps } from '@type/types';
+import { SmallCardProps } from '@utils/types/types';
 import React, { lazy, memo, useCallback, useMemo } from 'react';
 import { Author, Card, Image, ImagePlaceholder, Info, Status, Title } from './smallCard.styles';
 

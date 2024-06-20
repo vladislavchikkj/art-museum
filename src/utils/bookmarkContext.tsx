@@ -1,5 +1,5 @@
 import { BOOKMARKS_LOCAL_KEY } from '@constants/constants';
-import { BookmarkContextProps } from '@type/types';
+import { BookmarkContextProps } from '@utils/types/types';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const BookmarkContext = createContext<BookmarkContextProps | undefined>(undefined);
