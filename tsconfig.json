@@ -27,7 +27,8 @@
       "@utils/*": ["src/utils/*"],
       "@styles/*": ["src/styles/*"],
       "@ui/*": ["src/components/ui/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@shared/*": ["src/components/shared/*"]
     }
   },
   "include": ["src"],

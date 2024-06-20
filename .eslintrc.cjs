@@ -33,6 +33,7 @@ module.exports = {
           ['@ui', './src/components/ui'],
           ['@styles', './src/styles'],
           ['@assets', './src/assets'],
+          ['@shared', './src/components/shared'],
         ],
         extensions: ['.ts', '.js', '.jsx', '.json'],
       },

@@ -1,9 +1,9 @@
+import ErrorBoundary from '@shared/errorBoundary';
 import { BookmarkProvider } from '@utils/bookmarkContext';
 import GlobalStyles from '@utils/globalStyles';
 import { theme } from '@utils/theme';
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import ErrorBoundary from '../shared/errorBoundary';
 import Footer from './Footer/footer';
 import Header from './Header/header';
 import Container from './container';
