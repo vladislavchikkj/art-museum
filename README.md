@@ -1,4 +1,4 @@
-# Modsen Art Museum
+# Art Museum
 
 ## Description
 
