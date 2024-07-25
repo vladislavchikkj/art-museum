@@ -2,7 +2,7 @@
 
 ## Description
 
-The "Modsen Art Museum" project is a web application for displaying a catalog of paintings, allowing users to search, sort, and add paintings to a favorites list. The application uses an external API to fetch painting data and provides an intuitive interface for viewing them.
+The "Art Museum" project is a web application for displaying a catalog of paintings, allowing users to search, sort, and add paintings to a favorites list. The application uses an external API to fetch painting data and provides an intuitive interface for viewing them.
 
 ## Features
 
